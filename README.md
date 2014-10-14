@@ -1,4 +1,4 @@
 PRM-Digital
 ===========
 
-Digital public repository
+Digital & UX  - public repository
