@@ -273,4 +273,7 @@
     <string name="error_nfc_no_ndef_message_sent">"No NDEF Message for Tag writing was sent, please try again!</string>
     <string name="error_nfc_not_supported">Your phone does not support NFC or NFC is turned off...</string>
     
+    <!-- Beacons -->
+	<string name="welcome_promo">Welcome to Store! Today\'s offer 30% off on cameras</string>
+	<string name="goodbye_promo">Thanks for visiting us. Vist next to time to get 20% off on camera accessories</string>  
 </resources>

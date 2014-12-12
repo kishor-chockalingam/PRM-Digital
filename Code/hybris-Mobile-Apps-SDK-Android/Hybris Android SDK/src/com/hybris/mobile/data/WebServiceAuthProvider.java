@@ -99,7 +99,13 @@ public class WebServiceAuthProvider
 
 	public static String tokenURL()
 	{
-		return SDKSettings.getSettingValue(InternalConstants.KEY_PREF_BASE_URL) + "/rest/oauth/token";
+		if(SDKSettings.getSettingValue(InternalConstants.KEY_PREF_TOGGLE_SPECIFIC_BASE_URL).equalsIgnoreCase("true")) {
+			LoggingUtils.i(LOG_TAG, "token URL: " + SDKSettings.getSettingValue(InternalConstants.KEY_PREF_BASE_URL) + "/bncwebservices/oauth/token");
+			return SDKSettings.getSettingValue(InternalConstants.KEY_PREF_BASE_URL) + "/bncwebservices/oauth/token";
+		} else {
+			LoggingUtils.i(LOG_TAG, "token URL: " + SDKSettings.getSettingValue(InternalConstants.KEY_PREF_BASE_URL) + "/rest/oauth/token");
+			return SDKSettings.getSettingValue(InternalConstants.KEY_PREF_BASE_URL) + "/rest/oauth/token";
+		}
 	}
 
 	public static String callbackURL()

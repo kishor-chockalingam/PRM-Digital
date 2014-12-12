@@ -29,6 +29,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name="Hybris"
@@ -259,11 +262,36 @@ false
         <activity android:name="com.google.zxing.client.android.HelpActivity" >
         </activity>
 
+        <receiver android:name="com.hybris.mobile.beacons.BeaconReceiver" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.hybris.mobile.beacons.BeaconsReceiverNotifier" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="com.hybris.mobile.beacons.BeaconsBgService.action.NOTIFY" />
+            </intent-filter>
+        </receiver>
+
         <service android:name="com.hybris.mobile.api.geofence.intent.GeofenceIntentService" />
+        <service
+            android:name="com.estimote.sdk.service.BeaconService"
+            android:exported="false"
+            android:process=":remote" />
+        <service
+            android:name="com.hybris.mobile.beacons.BeaconBgService"
+            android:exported="false" >
+        </service>
     </application>
 
     <uses-feature
         android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
+        android:name="andoird.hardware.bluetooth_le"
         android:required="true" />
 
 </manifest>

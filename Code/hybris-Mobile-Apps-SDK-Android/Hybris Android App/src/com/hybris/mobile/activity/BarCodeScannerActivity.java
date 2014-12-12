@@ -11,16 +11,23 @@
  ******************************************************************************/
 package com.hybris.mobile.activity;
 
+import org.apache.commons.lang3.StringUtils;
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
+import android.util.Log;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.hybris.mobile.DataConstants;
 import com.hybris.mobile.Hybris;
+import com.hybris.mobile.InternalConstants;
 import com.hybris.mobile.R;
 import com.hybris.mobile.factory.barcode.IntentBarcode;
 import com.hybris.mobile.factory.barcode.IntentBarcodeFactory;
@@ -31,6 +38,7 @@ import com.hybris.mobile.factory.barcode.IntentBarcodeFactory;
  */
 public class BarCodeScannerActivity extends HybrisActivity implements Callback
 {
+	private final String TAG = BarCodeScannerActivity.class.getSimpleName();
 
 	public static final int MSG_DATA_ERROR = 1;
 	public static final int MSG_DATA_AVAILABLE = 2;
@@ -69,8 +77,24 @@ public class BarCodeScannerActivity extends HybrisActivity implements Callback
 			String contents = data.getStringExtra(SCAN_RESULT);
 			String format = data.getStringExtra(SCAN_RESULT_FORMAT);
 
+			Log.i(TAG, "Contents: " + contents);
+			Log.i(TAG, "format: " + format);
+			String isUseSpecificBaseUrl = Hybris.getSharedPreferenceString(InternalConstants.KEY_PREF_TOGGLE_SPECIFIC_BASE_URL); 
+			
+			
+			if(StringUtils.equals(isUseSpecificBaseUrl, String.valueOf(false))) {
+				Log.i(TAG, "calling default handler for url: " + contents);
 			// We run the task to check the format and data availability of the barcode scanned
-			new CheckBarcodeFormatAndValueTask().execute(contents, format);
+				new CheckBarcodeFormatAndValueTask().execute(contents, format);
+			} else {
+				isScannerRunning = false;
+				WebView myWebView = new WebView(this);
+				myWebView = (WebView) findViewById(R.layout.app_web_view);
+				Log.i(TAG, "calling webview with url: " + contents);
+				myWebView.loadUrl(contents);
+				WebSettings webSettings = myWebView.getSettings();
+				webSettings.setJavaScriptEnabled(true);
+			}
 		}
 		else if (resultCode == RESULT_CANCELED)
 		{
@@ -171,6 +195,7 @@ public class BarCodeScannerActivity extends HybrisActivity implements Callback
 				Message msg = new Message();
 				msg.what = BarCodeScannerActivity.MSG_DATA_ERROR;
 				msg.obj = Hybris.getAppContext().getString(R.string.error_barcode_no_action, params[0]);
+				Log.i(TAG,"barcode not covered by application: " + msg.obj);
 				mHandler.sendMessage(msg);
 			}
 

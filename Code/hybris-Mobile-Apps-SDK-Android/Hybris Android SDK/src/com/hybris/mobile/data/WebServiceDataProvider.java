@@ -151,7 +151,8 @@ public class WebServiceDataProvider
 
 	private static String baseUrl(Context context)
 	{
-		return String.format("%s/rest/v1", SDKSettings.getSharedPreferenceString(context, "web_services_base_url_preference"));
+		//return String.format("%s/rest/v1", SDKSettings.getSharedPreferenceString(context, "web_services_base_url_preference"));
+		return String.format("%s/bncwebservices/v1", SDKSettings.getSharedPreferenceString(context, "web_services_base_url_preference"));
 	}
 
 	private static String urlForLogout(Context context)

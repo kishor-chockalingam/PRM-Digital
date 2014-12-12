@@ -61,7 +61,8 @@ public final class WebService implements HYOCCInterface
 
 	private static String baseUrl()
 	{
-		return String.format("%s/rest/v1", SDKSettings.getSettingValue(InternalConstants.KEY_PREF_BASE_URL));
+		//return String.format("%s/rest/v1", SDKSettings.getSettingValue(InternalConstants.KEY_PREF_BASE_URL));
+		return String.format("%s/bncwebservices/v1", SDKSettings.getSettingValue(InternalConstants.KEY_PREF_BASE_URL));
 	}
 
 	private static String urlForLanguages()

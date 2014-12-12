@@ -79,6 +79,16 @@
             android:inputType="numberDecimal|numberSigned"
             android:key="geofencing_radius"
             android:title="Geofencing Radius" />
+        <EditTextPreference
+            android:defaultValue=""
+            android:dialogTitle="UUID"
+            android:key="uuid"
+            android:title="UUID" android:shouldDisableView="true"/>
+        <EditTextPreference
+            android:defaultValue=""
+            android:dialogTitle="DeviceId"
+            android:key="deviceid"
+            android:title="DeviceId" android:shouldDisableView="false"/>
         
     </PreferenceCategory>
 

@@ -13,20 +13,26 @@ package com.hybris.mobile;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.CookieHandler;
 import java.net.CookieManager;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.provider.Settings.Secure;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -37,6 +43,8 @@ import com.hybris.mobile.api.geofence.GeofenceUtils;
 import com.hybris.mobile.api.geofence.data.GeofenceObject;
 import com.hybris.mobile.api.geofence.geofencable.Geofencable;
 import com.hybris.mobile.api.geofence.geofencable.GeofenceJsonSharedPreferences;
+import com.hybris.mobile.beacons.BeaconBgService;
+import com.hybris.mobile.beacons.Constants;
 import com.hybris.mobile.data.CategoryManager;
 import com.hybris.mobile.logging.LoggingUtils;
 import com.hybris.mobile.model.store.Store;
@@ -87,6 +95,10 @@ public class Hybris extends Application
 		CookieHandler.setDefault(cookieManager);
 
 		populateCategories();
+		
+		setDeviceId();
+		setUuid(this);
+		startService();
 
 	}
 
@@ -439,6 +451,51 @@ public class Hybris extends Application
 		{
 			return false;
 		}
+	}
+	
+	
+	public void setDeviceId() {
+		String androidId = Hybris.getSharedPreferenceString(InternalConstants.KEY_PREF_DEVICE_ID);
+		if(androidId.isEmpty()) {
+			String id = Secure.getString(context.getContentResolver(), Secure.ANDROID_ID);
+			Hybris.setSharedPreferenceString(InternalConstants.KEY_PREF_DEVICE_ID, id);
+		}
+	}
+	
+	public void setUuid(Context context) {
+		final String uuid = Hybris.getSharedPreferenceString(InternalConstants.KEY_PREF_UUID);
+		UUID unique_uid;
+		if(uuid.isEmpty()) {
+			final String id = Hybris.getSharedPreferenceString(InternalConstants.KEY_PREF_DEVICE_ID);
+            if (!id.isEmpty()) {
+                // Use the ids previously computed and stored in the prefs file
+            	try {
+            		unique_uid = UUID.nameUUIDFromBytes(id.getBytes("utf8"));	
+            	}catch (UnsupportedEncodingException e) {
+                	LoggingUtils.e(LOG_TAG, "Error creating UUID " + e.getLocalizedMessage(), getAppContext());
+                    throw new RuntimeException(e);
+                }
+            } else {
+                try {
+                    final String deviceId = ((TelephonyManager) context.getSystemService( Context.TELEPHONY_SERVICE )).getDeviceId();
+                    unique_uid = deviceId!=null ? UUID.nameUUIDFromBytes(deviceId.getBytes("utf8")) : UUID.randomUUID();
+                    }
+                catch (UnsupportedEncodingException e) {
+                	LoggingUtils.e(LOG_TAG, "Error creating UUID " + e.getLocalizedMessage(), getAppContext());
+                    throw new RuntimeException(e);
+                }
+            }
+                // Write the value out to the prefs file
+            Hybris.setSharedPreferenceString(InternalConstants.KEY_PREF_UUID, unique_uid.toString());
+
+        }
+	}
+	
+	private void startService() {
+		Intent localintent = new Intent(context, BeaconBgService.class);
+		localintent.putExtra(Constants.COMMAND, Constants.REQUEST_ALL_REGION);
+		Log.i(LOG_TAG,"Sending intent to start beacons bg service");
+		Hybris.context.startService(localintent);
 	}
 
 }

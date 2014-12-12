@@ -45,6 +45,9 @@ public final class InternalConstants
 	public static final String KEY_PREF_GEOFENCING_LONGITUDE = "geofencing_longitude";
 	public static final String KEY_PREF_GEOFENCING_RADIUS = "geofencing_radius";
 	public static final String KEY_PREF_GEOFENCING_SPOOF_OVERRIDE = "geofencing_spoof_override";
+	public static final String KEY_PREF_DEVICE_ID = "deviceid";
+	public static final String KEY_PREF_UUID = "uuid";
+	
 
 	// Intents
 	public static final String INTENT_NAME_BARCODE_SCANNER = "com.hybris.mobile.SCAN";
