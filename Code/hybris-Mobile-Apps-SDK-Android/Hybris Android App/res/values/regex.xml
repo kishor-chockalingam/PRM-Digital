@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Regex for the different scan codes return: you must capture the expressions identifying the objects your looking for with brackets () -->
+    <!-- Don't forget to double back slash (\\) the special regex characters like ?, *, ^, etc. -->
+    <string name="regex_hybris_order_id_scan_pattern">^orders://([0-9]+)$</string>
+    <string name="regex_hybris_store_locator_scan_pattern">^stores://\\?longitude=(\\-?[0-9]*\\.?[0-9]+)&amp;latitude=(\\-?[0-9]*\\.?[0-9]+)&amp;radius=([0-9]*\\.?[0-9]+)$</string>
+    <string name="regex_hybris_store_locator_geolocate_scan_pattern">^stores://\\?radius=([0-9]*\\.?[0-9]+)</string>
+	<string-array name="regex_hybris_product">
+    	<!-- Basic number -->
+    	<item>^([0-9]+)$</item>
+    	<!-- hybris product pattern -->
+    	<item>^products://([0-9]+)$</item>
+    	<!-- URLs -->
+    	<item>^https?://[\\da-z\\.-]+\\.[a-z\\.]{2,6}[:0-9]*[/\\w\\.-]*/p/([0-9]+)\\??.*$</item>
+    	<item>^[\\da-z\\.-]+\\.[a-z\\.]{2,6}[:0-9]*[/\\w\\.-]*/p/([0-9]+)\\??.*$</item>
+    </string-array>
+
+</resources>

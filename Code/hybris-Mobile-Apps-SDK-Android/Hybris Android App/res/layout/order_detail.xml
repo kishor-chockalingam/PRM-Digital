@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/marginMainLeftAndRight"
+        android:paddingRight="@dimen/marginMainLeftAndRight"
+        android:paddingTop="@dimen/marginLargeTopAndBottom" >
+
+        <TextView
+            android:id="@+id/lbl_thankYou"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginMainTopAndBottom"
+            android:layout_marginBottom="@dimen/marginSmallTopAndBottom"
+            android:layout_marginLeft="@dimen/marginSmallLeftAndRight"
+            android:layout_marginRight="@dimen/marginSmallLeftAndRight"
+            android:text="@string/thank_you_order_label"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            android:textColor="@color/textHighlighted"
+            android:textSize="@dimen/textSizeMedium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbl_orderConfirmation"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/marginLargeTopAndBottom"
+            android:layout_marginLeft="@dimen/marginSmallLeftAndRight"
+            android:layout_marginRight="@dimen/marginSmallLeftAndRight"
+            android:paddingBottom="@dimen/marginMainTopAndBottom"
+            android:text="@string/order_confirmation_text"
+            android:visibility="gone"
+            android:textSize="@dimen/textSizeSmall" />
+
+        <TextView
+            android:id="@+id/lblOrderDetails"
+            style="@style/TextSectionHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order_details_text" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dividerMainSection"
+            android:background="@color/dividerMainSection" />
+
+        <RelativeLayout
+            android:id="@+id/containerOrderStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/marginLargeTopAndBottom"
+            android:paddingLeft="@dimen/marginSmallLeftAndRight"
+            android:paddingRight="@dimen/marginSmallLeftAndRight"
+            android:paddingTop="@dimen/marginLargeTopAndBottom"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/textView0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/order_status_placeholder_text"
+                android:textColor="@color/textHighlightedDark" />
+
+            <TextView
+                android:id="@+id/lbl_orderStatusView"
+                style="@style/TextContentSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView0" />
+        </RelativeLayout>
+        
+         <View
+            android:id="@+id/dividerOrderStatus"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dividerMainList"
+            android:background="@color/dividerMainList"
+            android:visibility="gone" />
+        
+        <RelativeLayout
+            android:id="@+id/containerDeliveryAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/marginLargeTopAndBottom"
+            android:paddingLeft="@dimen/marginSmallLeftAndRight"
+            android:paddingRight="@dimen/marginSmallLeftAndRight"
+            android:paddingTop="@dimen/marginLargeTopAndBottom" >
+
+            <TextView
+                android:id="@+id/textView0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/delivery_address_placeholder_text"
+                android:textColor="@color/textHighlightedDark" />
+
+            <TextView
+                android:id="@+id/lbl_addressView"
+                style="@style/TextContentSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView0"
+                android:text="@string/select_delivery_address" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dividerMainList"
+            android:background="@color/dividerMainList" />
+
+        <RelativeLayout
+            android:id="@+id/containerDeliveryMethod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/marginLargeTopAndBottom"
+            android:paddingLeft="@dimen/marginSmallLeftAndRight"
+            android:paddingRight="@dimen/marginSmallLeftAndRight"
+            android:paddingTop="@dimen/marginLargeTopAndBottom" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/delivery_method_confirmation_label"
+                android:textColor="@color/textHighlightedDark" />
+
+            <TextView
+                android:id="@+id/lbl_deliveryMethod"
+                style="@style/TextContentSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView3"
+                android:text="@string/select_delivery_mode" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dividerMainList"
+            android:background="@color/dividerMainList" />
+
+        <RelativeLayout
+            android:id="@+id/containerPaymentDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/marginLargeTopAndBottom"
+            android:paddingLeft="@dimen/marginSmallLeftAndRight"
+            android:paddingRight="@dimen/marginSmallLeftAndRight"
+            android:paddingTop="@dimen/marginLargeTopAndBottom" >
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/payment_details_confirmation_label"
+                android:textColor="@color/textHighlightedDark" />
+
+            <TextView
+                android:id="@+id/lbl_paymentDetails"
+                style="@style/TextContentSmall"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView4"
+                android:text="@string/select_payment_method" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dividerMainList"
+            android:background="@color/dividerMainList" />
+
+        <RelativeLayout
+            android:id="@+id/containerCartDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+            android:background="@drawable/list_selector"
+            android:clickable="true"
+            android:onClick="showBasketDetails"
+            android:paddingTop="@dimen/marginLargeTopAndBottom" >
+
+            <ImageView
+                android:id="@+id/imageViewListIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/marginSmallLeftAndRight"
+                android:src="@drawable/disclosure_selector" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/marginSmallLeftAndRight"
+                android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+                android:layout_toLeftOf="@id/imageViewListIndicator"
+                android:gravity="right"
+                android:text="@string/basket_details_label"
+                android:textColor="@color/textHighlightedDark"
+                android:textSize="@dimen/textSizeSmall" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/TextSectionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+                android:layout_toLeftOf="@id/textView6"
+                android:text="@string/summary_string" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dividerMainSection"
+            android:background="@color/dividerMainSection" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/marginLargeTopAndBottom"
+            android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+            android:paddingLeft="@dimen/marginSmallLeftAndRight"
+            android:paddingRight="@dimen/marginSmallLeftAndRight" >
+
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/TextMain.HighlightedDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/items_label" />
+
+            <TextView
+                android:id="@+id/lbl_subTotal"
+                style="@style/TextMain.HighlightedDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/textView5"
+                android:layout_alignParentRight="true"
+                android:gravity="right"
+                android:text="@string/price_placeholder_string" />
+
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/TextMain.HighlightedDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/textView5"
+                android:text="@string/promotion_label"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lbl_totalTax"
+                style="@style/TextMain.HighlightedDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/textView9"
+                android:layout_alignParentRight="true"
+                android:gravity="right"
+                android:text="@string/price_placeholder_string"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/TextMain.HighlightedDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/textView9"
+                android:text="@string/vat_label" />
+
+            <TextView
+                android:id="@+id/lbl_deliveryCharge"
+                style="@style/TextMain.HighlightedDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/textView8"
+                android:layout_alignParentRight="true"
+                android:text="@string/price_placeholder_string" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/textView8"
+                android:text="@string/total_label"
+                android:textColor="@color/textHighlighted"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lbl_totalPriceWithTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/textView11"
+                android:layout_alignParentRight="true"
+                android:text="@string/price_placeholder_string"
+                android:textColor="@color/textHighlighted"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

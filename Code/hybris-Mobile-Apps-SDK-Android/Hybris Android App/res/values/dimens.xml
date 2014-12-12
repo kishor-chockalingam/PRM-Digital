@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- text sizes -->
+    <dimen name="textSizeMain">18sp</dimen>
+    <dimen name="textSizeMedium">15sp</dimen>
+    <dimen name="textSizeSmall">14sp</dimen>
+    <dimen name="textSizeVerySmall">12sp</dimen>
+    <dimen name="textSizeButton">18dp</dimen>
+    <dimen name="textSizeSmallButton">15dp</dimen>
+    <dimen name="textSizeHeader">14dp</dimen>
+    <dimen name="textSizeActionBar">18dp</dimen>
+
+    <!-- margins -->
+    <dimen name="marginMainLeftAndRight">10dp</dimen>
+    <dimen name="marginMainTopAndBottom">10dp</dimen>
+    <dimen name="marginSmallLeftAndRight">5dp</dimen>
+    <dimen name="marginSmallTopAndBottom">5dp</dimen>
+    <dimen name="marginLargeLeftAndRight">15dp</dimen>
+    <dimen name="marginLargeTopAndBottom">15dp</dimen>
+    <dimen name="marginlistItemImage">7dp</dimen>
+    <dimen name="marginBetweenGalleryImages">20dp</dimen>
+    <dimen name="marginEditTextLeftAndRight">-4dp</dimen>
+    <dimen name="marginEditTextTop">-4dp</dimen>
+    <dimen name="marginPseudoSpinnerBottom">18dp</dimen>
+
+    <!-- heights and widths -->
+    <dimen name="startScreenBannerHeight">90dp</dimen>
+    <dimen name="buttonMainHeight">48dp</dimen>
+    <dimen name="buttonSmallHeight">40dp</dimen>
+    <dimen name="imageGalleryHeight">200dp</dimen>
+    <dimen name="footerHeight">40dp</dimen>
+    <dimen name="headerHeight">40dp</dimen>
+    <dimen name="headerTwoLinesHeight">56dp</dimen>
+    <dimen name="listItemSingleLineHeight">52dp</dimen>
+    <dimen name="listItemTwoLinesHeight">74dp</dimen>
+    <dimen name="listItemImageHeight">75dp</dimen>
+    <dimen name="listItemImageWidth">75dp</dimen>
+    <dimen name="listItemFormHeight">54dp</dimen>
+    <dimen name="storeFinderMapHeight">230dp</dimen>
+    <dimen name="formItemHeight">48dp</dimen>
+
+    <!-- dividers -->
+    <dimen name="dividerMainList">1dp</dimen>
+    <dimen name="dividerMainSection">2dp</dimen>
+    <dimen name="borderListItemImage">1dp</dimen>
+
+</resources>

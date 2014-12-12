@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/search"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@drawable/ic_menu_search"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/menu_search"/>
+    <item
+        android:id="@+id/refine"
+        android:icon="@drawable/ic_menu_filter"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/menu_refine"/>
+
+    <!-- <item -->
+    <!-- android:id="@+id/search" -->
+    <!-- android:actionLayout="@layout/search_actionbar" -->
+    <!-- android:orderInCategory="0" -->
+    <!-- android:showAsAction="always|collapseActionView"/> -->
+
+    <item
+        android:id="@+id/cart"
+        android:icon="@drawable/ic_menu_cart_empty"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/menu_cart"/>
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/ic_menu_account"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/menu_account"/>
+    <item
+        android:id="@+id/store_finder"
+        android:icon="@drawable/ic_menu_location"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/store_finder"/>
+    <item
+        android:id="@+id/scan"
+        android:icon="@drawable/ic_menu_scan"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/menu_scan"/>
+    <item
+        android:id="@+id/ui_components"
+        android:showAsAction="never"
+        android:title="@string/menu_ui_components"/>
+
+</menu>

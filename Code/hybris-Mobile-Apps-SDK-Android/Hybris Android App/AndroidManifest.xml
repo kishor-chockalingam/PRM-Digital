@@ -1,0 +1,269 @@
+<!--
+  [y] hybris Platform
+   
+    Copyright (c) 2000-2013 hybris AG
+    All rights reserved.
+   
+    This software is the confidential and proprietary information of hybris
+    ("Confidential Information"). You shall not disclose such Confidential
+    Information and shall use it only in accordance with the terms of the
+    license agreement you entered into with hybris.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hybris.mobile"
+    android:versionCode="2"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name="Hybris"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/HybrisTheme" >
+        <uses-library android:name="com.google.android.maps" />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/maps_key" />
+
+        <!-- Begin - HockeyApp Integration -->
+        <activity android:name="net.hockeyapp.android.UpdateActivity" />
+        <!-- End - HockeyApp Integration -->
+
+        <activity
+            android:name=".activity.ObjectListActivity"
+            android:label="@string/title_object_list_activity"
+            android:screenOrientation="portrait" >
+            <item name="android:windowActionBar">
+false
+            </item>
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- Receives the search request. -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <!-- No category needed, because the Intent will specify this class component -->
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ProductDetailActivity"
+            android.label="@string/title_product_detail_activity"
+            android:screenOrientation="portrait" >
+
+            <!-- NFC TAG -->
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- URI scheme that recognize our product pattern -->
+                <data
+                    android:host="mapi.hybris.com"
+                    android:scheme="http" />
+                <data
+                    android:host="mapi.hybris.com"
+                    android:scheme="https" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- URI scheme that recognize our product pattern -->
+                <data android:scheme="products" />
+            </intent-filter>
+
+            <!-- QR CODE -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- URI scheme that recognize our product pattern -->
+                <data
+                    android:host="mapi.hybris.com"
+                    android:scheme="http" />
+                <data
+                    android:host="mapi.hybris.com"
+                    android:scheme="https" />
+            </intent-filter>
+            <!-- QR CODE -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- URI scheme that recognize our product pattern -->
+                <data android:scheme="products" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.AccountListActivity"
+            android.label="@string/title_account_list_activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android.label="@string/title_login_activity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name=".activity.OrderListActivity"
+            android.label="@string/title_order_history_activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.OrderDetailActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- URI scheme that recognize our order pattern -->
+                <data android:scheme="orders" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysVisible" >
+        </activity>
+        <activity
+            android:name=".activity.FormActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.FormPopupSelectActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.PaymentDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name=".activity.ImageZoomActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.NFCWriteActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.AddressDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name=".activity.AddressListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.PaymentListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.ProfileDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name=".activity.CartListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.BasketDetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.CheckoutActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.DeliveryMethodActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.FormPickerActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hybris.mobile.activity.StoreLocatorActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- URI scheme that recognize our store locator pattern -->
+                <data android:scheme="stores" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hybris.mobile.activity.StoreLocatorDetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".activity.UIComponentsActivity"
+            android.label="@string/title_ui_components"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.BarCodeScannerActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.google.zxing.client.android.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+            <intent-filter>
+                <action android:name="com.hybris.mobile.SCAN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.google.zxing.client.android.HelpActivity" >
+        </activity>
+
+        <service android:name="com.hybris.mobile.api.geofence.intent.GeofenceIntentService" />
+    </application>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+</manifest>

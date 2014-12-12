@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- text main -->
+    <color name="textMain">#4E4E4E</color>
+    <color name="textMedium">#777777</color>
+    <color name="textLight">#B5B5B5</color>
+    <color name="textVeryLight">#ADADAD</color>
+    <color name="textHighlighted">#0958B8</color>
+    <color name="textHighlightedDark">#233548</color>
+    <color name="textHighlightedLight">#80233548</color>
+
+    <!-- text secondary -->
+    <color name="textLink">#0958B8</color>
+    <color name="textButton">#000000</color>
+    <color name="textButtonLight">#4E4E4E</color>
+    <color name="textActionBar">#FFFFFF</color>
+    <color name="textFooter">#FFFFFF</color>
+    <color name="textHeader">#FFFFFF</color>
+    <color name="textTabs">#FFFFFF</color>
+    <color name="textAdvice">#0958B8</color>
+    <color name="textPromotion">#0958B8</color>
+
+    <!-- textfields -->
+    <color name="editText">#233548</color>
+    <color name="editTextHint">#ADADAD</color>
+    <color name="editTextAutoComplete">#0958B8</color>
+    <color name="editTextDark">#FFFFFF</color>
+    <color name="editTextDarkHint">#4DFFFFFF</color>
+    <color name="editTextDarkAutoComplete">#FFDE31</color>
+
+    <!-- background -->
+    <color name="bgMain">#F4F4F4</color>
+    <color name="bgActionBar">#233548</color>
+    <color name="bgActionBarSplit">#233548</color>
+    <color name="bgActionBarActionMode">#233548</color>
+    <color name="bgTabs">#233548</color>
+    <color name="bgFooter">#233548</color>
+    <color name="bgHeader">#233548</color>
+    <color name="bgMainList">#F4F4F4</color>
+    <color name="bgImageGallery">#FFF</color>
+    <color name="bgPromotionText">#FFF</color>
+
+    <!-- action items -->
+    <color name="bgActionBarItemPressed">#1C2A3A</color>
+    <color name="bgMainListItemPressed">#FFE78E</color>
+    <color name="btnMainBorder">#BFC5CE</color>
+    <color name="btnMainGradient1">#FFDE31</color>
+    <color name="btnMainGradient2">#FFC813</color>
+    <color name="btnMainPressedGradient1">#FEC800</color>
+    <color name="btnMainPressedGradient2">#FEB700</color>
+    <color name="btnMainDisabledGradient1">#D5D8DB</color>
+    <color name="btnMainDisabledGradient2">#C9CDD1</color>
+    <color name="btnLightBorder">#D3D5D9</color>
+    <color name="btnLightGradient1">#1AFFFFFF</color>
+    <color name="btnLightGradient2">#1A7E7E7E</color>
+    <color name="btnLightPressedGradient1">#337E7E7E</color>
+    <color name="btnLightPressedGradient2">#33FFFFFF</color>
+    <color name="btnLightDisabledGradient1">#1AA8A8A8</color>
+    <color name="btnLightDisabledGradient2">#1A7E7E7E</color>
+
+    <!-- dividers -->
+    <color name="dividerMainList">#C4C4C4</color>
+    <color name="dividerMainSection">#ACACAC</color>
+    <color name="borderListItemImage">#C4C4C4</color>
+
+</resources>

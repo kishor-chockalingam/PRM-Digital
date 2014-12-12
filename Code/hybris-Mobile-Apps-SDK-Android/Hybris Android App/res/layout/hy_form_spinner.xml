@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Unused yet, see HYFormTextSelectionCell2 for details -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/formItemHeight"
+    android:minHeight="@dimen/formItemHeight"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Unused yet -->
+    <TextView
+        android:id="@+id/lbl_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/form_error_message_placeholder"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="@dimen/textSizeSmall" 
+        android:visibility="gone"/>
+
+</LinearLayout>

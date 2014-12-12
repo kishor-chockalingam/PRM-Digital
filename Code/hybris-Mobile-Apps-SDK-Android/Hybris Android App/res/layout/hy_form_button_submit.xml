@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/listItemFormHeight"
+    android:background="@color/bgFooter"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/buttonMainHeight"
+        android:layout_marginBottom="@dimen/marginSmallTopAndBottom"
+        android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+        android:layout_marginRight="@dimen/marginMainLeftAndRight"
+        android:layout_marginTop="@dimen/marginSmallTopAndBottom" />
+
+</LinearLayout>

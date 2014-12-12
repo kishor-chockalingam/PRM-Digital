@@ -1,0 +1,340 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- Reviews -->
+
+        <RelativeLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/containerReviews"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/buttonMainHeight"
+            android:background="@drawable/list_selector"
+            android:clickable="true"
+            android:onClick="showReviews"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/buttonReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/marginSmallLeftAndRight"
+                android:layout_marginRight="@dimen/marginMainLeftAndRight"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/delivery_information_label"
+                android:duplicateParentState="true"
+                android:src="@drawable/disclosure_selector" />
+
+            <RatingBar
+                android:id="@+id/ratingBarRating"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+                android:layout_marginRight="@dimen/marginSmallLeftAndRight"
+                android:gravity="center"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:progressDrawable="@drawable/ratingbar"
+                android:stepSize="0.5" />
+
+            <TextView
+                android:id="@+id/textViewReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/buttonReviews"
+                android:layout_toRightOf="@id/ratingBarRating"
+                android:ellipsize="start"
+                android:gravity="right|center_vertical"
+                android:singleLine="true"
+                android:textSize="@dimen/textSizeMedium" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dividerMainList"
+            android:background="@color/dividerMainSection" />
+
+        <!-- Gallery -->
+        <!-- Deprecated in SDK v16: change to horizontal scroll view at later date -->
+
+        <Gallery
+            android:id="@+id/galleryImages"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/imageGalleryHeight"
+            android:background="@color/bgImageGallery"
+            android:gravity="fill_horizontal"
+            android:spacing="@dimen/marginBetweenGalleryImages" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dividerMainList"
+            android:background="@color/dividerMainSection" />
+
+        <!-- Quantity and Price -->
+
+       <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/marginMainTopAndBottom"
+            android:layout_marginTop="@dimen/marginMainTopAndBottom"
+            android:paddingLeft="@dimen/marginMainLeftAndRight"
+            android:paddingRight="@dimen/marginMainLeftAndRight" >
+
+            <Button
+                android:id="@+id/quantityButton"
+                style="@style/ButtonLight"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/buttonSmallHeight"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="@dimen/marginSmallLeftAndRight"
+                android:onClick="showQuantityPicker"
+                android:paddingLeft="@dimen/marginLargeLeftAndRight"
+                android:paddingRight="@dimen/marginLargeLeftAndRight"
+                android:text="@string/quantity" />
+
+
+            <TextView
+                android:id="@+id/textViewStockLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/quantityButton"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/quantityButton"
+                android:gravity="right"
+                android:text="Only 3 left"
+                android:textColor="@color/textLight"
+                android:textSize="@dimen/textSizeVerySmall" />
+
+            <TextView
+                android:id="@+id/textViewPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/textViewStockLevel"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/quantityButton"
+                android:layout_toRightOf="@id/quantityButton"
+                android:gravity="right|bottom"
+                android:text="1.086,00 $"
+                android:textColor="@color/textHighlighted"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Style -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/marginMainLeftAndRight"
+            android:paddingRight="@dimen/marginMainLeftAndRight" >
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dividerMainList"
+                android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+                android:background="@color/dividerMainSection" />
+
+            <ListView
+                android:id="@+id/list_variants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none" >
+
+            </ListView>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dividerMainList"
+                android:layout_marginBottom="@dimen/marginLargeTopAndBottom"
+                android:background="@color/dividerMainSection" />
+        </LinearLayout>
+        <!-- Add To Basket Button -->
+
+        <Button
+            android:id="@+id/buttonAddToCart"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/buttonMainHeight"
+            android:layout_marginBottom="@dimen/marginMainTopAndBottom"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:onClick="addToCart"
+            android:text="@string/add_to_cart" />
+
+        <!-- Promotion -->
+
+        <TextView
+            android:id="@+id/textViewPromotion"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/marginLargeTopAndBottom"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:background="@color/bgPromotionText"
+            android:gravity="center_vertical|left"
+            android:linksClickable="true"
+            android:maxLines="@integer/short_description_lines"
+            android:minHeight="@dimen/buttonSmallHeight"
+            android:padding="@dimen/marginSmallLeftAndRight"
+            android:textColor="@color/textPromotion"
+            android:textColorLink="@color/textLink"
+            android:textStyle="bold"
+            android:textSize="@dimen/textSizeMedium" />
+
+        <!-- Description -->
+
+        <TextView
+            android:id="@+id/textViewSectionHeader"
+            style="@style/TextSectionHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+            android:text="@string/product_info_header" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dividerMainSection"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:background="@color/dividerMainSection" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:background="@drawable/list_selector"
+            android:clickable="true"
+            android:minHeight="@dimen/listItemSingleLineHeight"
+            android:onClick="showDescription"
+            android:paddingBottom="@dimen/marginLargeTopAndBottom"
+            android:paddingLeft="@dimen/marginSmallLeftAndRight"
+            android:paddingRight="@dimen/marginSmallLeftAndRight"
+            android:paddingTop="@dimen/marginLargeTopAndBottom" >
+
+            <ImageButton
+                android:id="@+id/buttonDescriptionDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/more_information_label"
+                android:duplicateParentState="true"
+                android:src="@drawable/disclosure_selector" />
+
+            <TextView
+                android:id="@+id/textViewDescription"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/marginSmallLeftAndRight"
+                android:layout_toLeftOf="@id/buttonDescriptionDetails"
+                android:ellipsize="end"
+                android:gravity="left|top"
+                android:maxLines="@integer/short_description_lines"
+                android:textSize="@dimen/textSizeMedium" />
+        </RelativeLayout>
+
+        <!-- More Information -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dividerMainList"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:background="@color/dividerMainSection" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:background="@drawable/list_selector"
+            android:clickable="true"
+            android:minHeight="@dimen/listItemSingleLineHeight"
+            android:onClick="showMoreInformation"
+            android:paddingLeft="@dimen/marginSmallLeftAndRight"
+            android:paddingRight="@dimen/marginSmallLeftAndRight" >
+
+            <ImageButton
+                android:id="@+id/buttonMoreInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/more_information_label"
+                android:duplicateParentState="true"
+                android:src="@drawable/disclosure_selector" />
+
+            <TextView
+                android:id="@+id/textViewMoreInformation"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/marginSmallLeftAndRight"
+                android:layout_toLeftOf="@id/buttonMoreInformation"
+                android:text="@string/more_information_label"
+                android:textSize="@dimen/textSizeMedium" />
+        </RelativeLayout>
+
+        <!-- Delivery Information -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dividerMainList"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:background="@color/dividerMainSection" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:background="@drawable/list_selector"
+            android:clickable="true"
+            android:minHeight="@dimen/listItemSingleLineHeight"
+            android:onClick="showDeliveryInformation"
+            android:paddingLeft="@dimen/marginSmallLeftAndRight"
+            android:paddingRight="@dimen/marginSmallLeftAndRight" >
+
+            <ImageButton
+                android:id="@+id/buttonDeliveryInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/more_information_label"
+                android:duplicateParentState="true"
+                android:src="@drawable/disclosure_selector" />
+
+            <TextView
+                android:id="@+id/textViewDeliveryInformation"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/marginSmallLeftAndRight"
+                android:layout_toLeftOf="@id/buttonDeliveryInformation"
+                android:text="@string/delivery_information_label"
+                android:textSize="@dimen/textSizeMedium" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

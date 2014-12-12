@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/listItemFormHeight"
+    android:paddingBottom="@dimen/marginPseudoSpinnerBottom"
+    android:orientation="vertical" >
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:checkMark="@drawable/btn_checkbox_main"
+        android:duplicateParentState="true"
+        android:gravity="center_vertical" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dividerMainList"
+        android:layout_alignParentBottom="true"
+        android:background="@color/dividerMainList" />
+
+</RelativeLayout>

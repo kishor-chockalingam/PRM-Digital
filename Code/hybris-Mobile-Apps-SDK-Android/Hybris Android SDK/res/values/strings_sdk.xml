@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">hybris</string>
+   	<string name="client_id">mobile_android</string>
+    <string name="client_secret">secret</string>
+</resources>

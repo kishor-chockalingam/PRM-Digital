@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <!-- Search View -->
+
+    <ListView
+        android:id="@+android:id/searchList"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="@dimen/marginMainLeftAndRight"
+        android:paddingRight="@dimen/marginMainLeftAndRight" />
+
+    <!-- Main View -->
+
+    <LinearLayout
+        android:id="@+id/innerlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/imageViewBanner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/startScreenBannerHeight"
+            android:layout_marginBottom="@dimen/marginMainTopAndBottom"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:layout_marginTop="@dimen/marginMainTopAndBottom"
+            android:contentDescription="@string/banner"
+            android:scaleType="fitStart"
+            android:src="@drawable/img_start_banner" />
+
+        <TextView
+            android:id="@+id/header_view"
+            style="@style/TextHeader"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/headerHeight"
+            android:background="@drawable/bg_header_with_divider" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerMainList"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:background="@color/dividerMainList" />
+
+        <ListView
+            android:id="@+android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:paddingLeft="@dimen/marginMainLeftAndRight"
+            android:paddingRight="@dimen/marginMainLeftAndRight" >
+        </ListView>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageViewSplash"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/splash"
+        android:scaleType="center"
+        android:src="@drawable/splashscreen" />
+
+</RelativeLayout>

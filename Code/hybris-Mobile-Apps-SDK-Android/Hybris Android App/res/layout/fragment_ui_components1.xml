@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/TextContentSmall"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/marginMainTopAndBottom"
+        android:paddingRight="@dimen/marginMainTopAndBottom"
+        android:text="tab appearance defined in bg_tab.xml" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dividerMainList"
+        android:background="@color/dividerMainList" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:id="@+id/containerMainExample"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/marginMainLeftAndRight"
+            android:paddingRight="@dimen/marginMainLeftAndRight" >
+
+            <Spinner
+                android:id="@+id/spinnerMainExample"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginLargeTopAndBottom"
+                android:layout_marginLeft="@dimen/marginEditTextLeftAndRight"
+                android:layout_marginRight="@dimen/marginEditTextLeftAndRight"
+                android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+                android:entries="@array/ui_components_spinner"
+                android:prompt="@string/ui_components_spinner_prompt" />
+
+            <EditText
+                android:id="@+id/editTextMainExample"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginLargeTopAndBottom"
+                android:layout_marginLeft="@dimen/marginEditTextLeftAndRight"
+                android:layout_marginRight="@dimen/marginEditTextLeftAndRight"
+                android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+                android:hint="textfield_main.xml"
+                android:imeOptions="actionDone"
+                android:inputType="text" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/listItemTwoLinesHeight"
+                android:layout_marginBottom="@dimen/marginLargeTopAndBottom"
+                android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+                android:background="@drawable/list_selector"
+                android:clickable="true" >
+
+                <ImageView
+                    android:id="@+id/imageViewListIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/marginSmallLeftAndRight"
+                    android:duplicateParentState="true"
+                    android:src="@drawable/disclosure_selector" />
+
+                <TextView
+                    android:id="@+id/textViewSingleLine"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/marginSmallLeftAndRight"
+                    android:layout_marginRight="@dimen/marginSmallLeftAndRight"
+                    android:layout_toLeftOf="@id/imageViewListIndicator"
+                    android:text="list item indicator: disclosure_selector.xml" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerMainList"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/dividerMainList" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dividerMainList"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/dividerMainList" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/buttonLightExample"
+                style="@style/ButtonLight"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/buttonSmallHeight"
+                android:layout_marginBottom="@dimen/marginMainTopAndBottom"
+                android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+                android:text="btn_light.xml" />
+
+            <CheckBox
+                android:id="@+id/checkBoxMainExample"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginMainTopAndBottom"
+                android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+                android:text="btn_checkbox_main.xml" />
+
+            <Button
+                android:id="@+id/buttonMainExample"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/buttonMainHeight"
+                android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+                android:text="btn_main.xml" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

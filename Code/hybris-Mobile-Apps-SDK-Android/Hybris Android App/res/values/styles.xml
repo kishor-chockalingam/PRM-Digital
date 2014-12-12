@@ -1,0 +1,155 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- text styles -->
+    <style name="TextMain" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/textSizeMain</item>
+        <item name="android:textColor">@color/textMain</item>
+    </style>
+
+    <style name="TextMain.HighlightedDark">
+        <item name="android:textColor">@color/textHighlightedDark</item>
+    </style>
+
+    <style name="TextContentSmall" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/textSizeSmall</item>
+        <item name="android:textColor">@color/textMedium</item>
+    </style>
+
+    <style name="TextHeader" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/textSizeHeader</item>
+        <item name="android:textColor">@color/textHeader</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextSectionHeader" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/textSizeSmall</item>
+        <item name="android:textColor">@color/textHighlightedDark</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextSectionHeaderCart" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/textSizeMedium</item>
+        <item name="android:textColor">@color/textMain</item>
+        <item name="android:paddingBottom">2dp</item>
+    </style>
+
+    <!-- ActionBar -->
+
+    <style name="HybrisTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/bgActionBar</item>
+        <item name="android:backgroundStacked">@color/bgActionBarActionMode</item>
+        <item name="android:backgroundSplit">@drawable/bg_header_with_divider</item>
+        <item name="android:actionBarItemBackground">@drawable/selector_action_item</item>
+        <item name="android:icon">@drawable/ic_menu_home</item>
+        <item name="android:titleTextStyle">@style/HybrisTheme.ActionBarStyle.TitleTextStyle</item>
+    </style>
+
+    <style name="HybrisTheme.ActionBarStyle.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/textActionBar</item>
+        <item name="android:textSize">@dimen/textSizeActionBar</item>
+    </style>
+
+    <style name="HybrisTheme.ActionBarOverflowStyle" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_menu_moreoverflow_normal_holo_dark</item>
+    </style>
+
+    <!-- Tabs -->
+
+    <style name="TabView" parent="@android:style/Widget">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/bg_tab</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <style name="TabBar" parent="@android:style/Widget">
+        <item name="android:showDividers">none</item>
+        <item name="android:background">@drawable/bg_header_with_divider</item>
+        <item name="android:dividerPadding">12dp</item>
+    </style>
+
+    <style name="TabText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/textTabs</item>
+        <item name="android:textSize">@dimen/textSizeSmall</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="HybrisTheme.ActionMode" parent="@android:style/Widget.Holo.Light.ActionMode">
+        <item name="android:background">@color/bgActionBarActionMode</item>
+        <item name="android:backgroundSplit">@color/bgActionBarSplit</item>
+    </style>
+
+    <!-- EditTexts -->
+    <style name="EditTextMain" parent="@android:style/Widget.Holo.Light.EditText">
+        <item name="android:textColor">@color/editText</item>
+        <item name="android:textColorHint">@color/editTextHint</item>
+        <item name="android:textSize">@dimen/textSizeMedium</item>
+        <item name="android:textColorHighlight">@color/editTextAutoComplete</item>
+        <item name="android:background">@drawable/textfield_main</item>
+    </style>
+
+    <style name="EditTextDark" parent="@android:style/Widget.Holo.EditText">
+        <item name="android:textColor">@color/editTextDark</item>
+        <item name="android:textColorHint">@color/editTextDarkHint</item>
+        <item name="android:textSize">@dimen/textSizeMedium</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textColorHighlight">@color/editTextDarkAutoComplete</item>
+        <item name="android:background">@drawable/textfield_dark</item>
+    </style>
+
+    <!-- ListView -->
+    <style name="HYListView" parent="@android:style/Widget.Holo.Light.ListView">
+        <item name="android:background">@color/bgMainList</item>
+        <item name="android:divider">@color/dividerMainList</item>
+        <item name="android:dividerHeight">@dimen/dividerMainList</item>
+        <item name="android:drawSelectorOnTop">false</item>
+        <item name="android:listSelector">@drawable/list_selector</item>
+        <item name="android:overScrollMode">ifContentScrolls</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+    </style>
+
+    <!-- ScrollView -->
+    <style name="HYScrollView" parent="@android:style/Widget.ScrollView">
+        <item name="android:overScrollMode">ifContentScrolls</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+    </style>
+
+    <!-- Buttons -->
+    <style name="ButtonMain" parent="@android:style/Widget.Holo.Button">
+        <item name="android:background">@drawable/btn_main</item>
+        <item name="android:textSize">@dimen/textSizeButton</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/textButton</item>
+    </style>
+
+    <style name="ButtonLight" parent="@android:style/Widget.Holo.Light.Button">
+        <item name="android:background">@drawable/btn_light</item>
+        <item name="android:textSize">@dimen/textSizeSmallButton</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/textButtonLight</item>
+    </style>
+
+    <style name="CheckBoxMain" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/btn_checkbox_main</item>
+    </style>
+
+    <!-- ImageView -->
+    <style name="ListItemImageView">
+        <item name="android:background">@color/borderListItemImage</item>
+        <item name="android:padding">@dimen/borderListItemImage</item>
+        <item name="android:src">@drawable/ic_launcher</item>
+    </style>
+
+    <!-- Spinner -->
+    <style name="SpinnerMain" parent="@android:style/Widget">
+        <item name="android:background">@drawable/spinner_dropdown</item>
+        <item name="android:textColor">@color/textHighlightedDark</item>
+        <item name="android:textSize">@dimen/textSizeMedium</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+</resources>

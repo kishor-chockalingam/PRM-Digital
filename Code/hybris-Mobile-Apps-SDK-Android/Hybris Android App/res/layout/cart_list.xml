@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/containerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bgFooter"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btnCheckout"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/buttonMainHeight"
+            android:layout_marginBottom="@dimen/marginSmallTopAndBottom"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:layout_marginTop="@dimen/marginSmallTopAndBottom"
+            android:onClick="showCheckoutActivity"
+            android:text="@string/cart_checkout_button" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/containerQuantityAndPrice"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/marginMainTopAndBottom"
+        android:paddingLeft="@dimen/marginMainLeftAndRight"
+        android:paddingRight="@dimen/marginMainLeftAndRight"
+        android:paddingTop="@dimen/marginMainTopAndBottom" >
+
+        <TextView
+            android:id="@+id/lbl_cart_total_price"
+            style="@style/TextSectionHeaderCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/zero_price_string"
+            android:textColor="@color/textHighlighted"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbl_cart_quantity"
+            style="@style/TextSectionHeaderCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="@dimen/marginSmallLeftAndRight"
+            android:layout_toLeftOf="@id/lbl_cart_total_price"
+            android:textColor="@color/textHighlightedDark"
+            android:text="@string/zero_items_string" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dividerMainSection"
+        android:layout_below="@id/containerQuantityAndPrice"
+        android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+        android:layout_marginRight="@dimen/marginMainLeftAndRight"
+        android:background="@color/dividerMainSection" >
+    </LinearLayout>
+
+    <ListView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:layout_above="@id/containerButton"
+        android:layout_below="@id/containerQuantityAndPrice"
+        android:layout_marginTop="@dimen/dividerMainSection"
+        android:paddingLeft="@dimen/marginMainLeftAndRight"
+        android:paddingRight="@dimen/marginMainLeftAndRight" >
+    </ListView>
+
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:dither="true">
+
+    <item android:drawable="@drawable/btn_check_dark_on_pressed" android:state_checked="true" android:state_enabled="true" android:state_focused="false" android:state_pressed="true"/>
+    <item android:drawable="@drawable/btn_check_dark_on_focused" android:state_checked="true" android:state_enabled="true" android:state_focused="true" android:state_pressed="false"/>
+    <item android:drawable="@drawable/btn_check_dark_on_disabled" android:state_checked="true" android:state_enabled="false" android:state_focused="false" android:state_pressed="false"/>
+    <item android:drawable="@drawable/btn_check_dark_on_default" android:state_checked="true" android:state_enabled="true" android:state_focused="false" android:state_pressed="false"/>
+    <item android:drawable="@drawable/btn_check_dark_off_pressed" android:state_checked="false" android:state_enabled="true" android:state_focused="false" android:state_pressed="true"/>
+    <item android:drawable="@drawable/btn_check_dark_off_focused" android:state_checked="false" android:state_enabled="true" android:state_focused="true" android:state_pressed="false"/>
+    <item android:drawable="@drawable/btn_check_dark_off_disabled" android:state_checked="false" android:state_enabled="false" android:state_focused="false" android:state_pressed="false"/>
+    <item android:drawable="@drawable/btn_check_dark_off_default" android:state_checked="false" android:state_enabled="true" android:state_focused="false" android:state_pressed="false"/>
+
+</selector>

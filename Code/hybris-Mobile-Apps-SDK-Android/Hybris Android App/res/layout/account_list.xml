@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/marginMainLeftAndRight"
+    android:paddingRight="@dimen/marginMainLeftAndRight"
+    tools:context=".activity.AccountListActivity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/headerTwoLinesHeight"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/lbl_user_profile_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/textHighlightedDark"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/lbl_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/logging_in_string"
+            android:textColor="@color/textHighlightedDark"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dividerMainSection"
+        android:background="@color/dividerMainSection" />
+
+    <ListView
+        android:id="@+android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dividerMainList"
+        android:background="@color/dividerMainList" />
+
+    <LinearLayout
+        android:id="@+id/layoutSwipe"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:minHeight="200dp" />
+
+</LinearLayout>

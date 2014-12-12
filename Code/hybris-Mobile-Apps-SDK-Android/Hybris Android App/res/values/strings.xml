@@ -1,0 +1,276 @@
+<resources>
+
+    <string name="app_name">hybris</string>
+    <string name="menu_settings">Settings</string>
+    <string name="store_search_hint">Type in a location</string>
+    <string name="title_object_list_activity">Shop</string>
+    <string name="client_id">mobile_android</string>
+    <string name="client_secret">secret</string>
+    <string name="title_account_list_activity">Account Activity</string>
+    <string name="title_login_activity">Signin</string>
+    <string name="title_order_history_activity">Order History</string>
+    <string name="order_status_label">Status:</string>
+    <string name="title_ui_components">UI Components</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_cart">Cart</string>
+    <string name="menu_account">Account</string>
+    <string name="store_finder">Store Finder</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_write_tag">Write NFC Tag</string>
+    <string name="menu_scan">Scan</string>
+    <string name="menu_ui_components">UI Components</string>
+    <string name="menu_refine">Refine</string>
+    <string name="variants_select">Select a</string>
+
+    <!-- Settings Page -->
+    <string name="page_settings">Settings</string>
+    <string name="settings_web_services">Web Services</string>
+    <string name="settings_powered_by">Powered by InAppSettingsKit</string>
+    <string name="settings_done">Done</string>
+
+    <!-- Object List -->
+    <string name="title_product_detail_activity">Project Detail Activity</string>
+    <string name="search_widget_hint">Search for products</string>
+    <string name="search_instructions">Search for products</string>
+    <string name="did_you_mean">Did you mean \"%1$s\"?</string>
+    <string name="filter">Refine</string>
+    <string name="sort">Sort</string>
+    <string name="banner">Banner</string>
+    <string name="splash">Splash</string>
+
+    <!-- Filter list -->
+    <string name="title_filter_list_activity">Refine</string>
+
+    <!-- Sort list -->
+    <string name="title_sort_list_activity">Sort</string>
+
+    <!-- Product Details -->
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="quantity">Quantity</string>
+    <string name="quantity_button">Quantity: %1$d</string>
+    <string name="productDetails_couldNotAddToCart">Could not add item to cart</string>
+    <string name="size">Size</string>
+    <string name="color">Color</string>
+    <string name="show_reviews">Show Reviews (%1$d)</string>
+    <string name="red_ant_digital">Red Ant Digital</string>
+    <string name="test_account_redant_com">test-account@redant.com</string>
+    <string name="filter_dialog_title">Refine</string>
+    <string name="sort_dialog_title">Sort</string>
+    <string name="reviews_dialog_title">All Reviews</string>
+    <string name="ok_button_label">OK</string>
+    <string name="cancel_button_label">Cancel</string>
+    <string name="email_address">Email Address</string>
+    <string name="returning_customer">Returning Customer</string>
+    <string name="password_hint">Password</string>
+    <string name="forgotten_password_string">Forgot your password?</string>
+    <string name="discount">- %1$s</string>
+   	<string name="search_products_hint">Search for products</string>
+    
+    <string name="register_button_string">Register</string>
+    <string name="new_customer_button_string">New Customer</string>
+    <string name="promotion_text">Promotion Text</string>
+    <string name="product_info_header">Product Info</string>
+    <string name="choose_quantity_title">Choose Quantity</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="save_password_button_string">Save Password</string>
+    
+    <string name="more_information_label">More Information</string>
+    <string name="delivery_information_label">Delivery Information</string>
+    <string name="stock_details_low_stock_with_value">Only %1$d left</string>
+    <string name="stock_details_in_stock">In stock</string>
+    <string name="stock_details_low_stock">Low stock</string>
+    <string name="stock_details_out_of_stock">Out of stock</string>
+    <string name="tab_login">LOGIN</string>
+    <string name="tab_register">REGISTER</string>
+    <string name="tab_ui_components1">LIGHT</string>
+    <string name="tab_ui_components2">DARK</string>
+    <string name="actionBarTitle_login">Login</string>
+    <string name="actionBarTitle_register">Register</string>
+    <string name="actionBarTitle_ui_components1">Light</string>
+    <string name="actionBarTitle_ui_components2">Dark</string>
+
+    <!-- Account -->
+    <string name="change_password">Change Password</string>
+    <string name="login_button_string">Login</string>
+    <string name="logging_in_string">Logging in…</string>
+    <string name="account_page_title">Account</string>
+    <string name="address_book_page_title">Address Book</string>
+    <string name="basket_details_page_title">Basket details</string>
+    <string name="cart_list_page_title">Your Cart</string>
+	<string name="checkout_page_title">Checkout</string>
+    <string name="delivery_method_page_title">Delivery Method</string>
+    <string name="payment_details_page_title">Payment Details</string>
+    <string name="payment_list_page_title">Payment List</string>
+    <string name="profile_detail_page_title">Update Profile</string>
+    <string name="not_logged_in">Not Logged in</string>
+    <string name="new_password_sent">New password has been sent to your email address</string>
+    <string name="please_enter_email_address">Please enter your email address</string>
+    <string name="login_successful">Login Successful!</string>
+
+    <!-- Nfc -->
+    <string name="nfc_dialog_ok">OK</string>
+    <string name="nfc_dialog_title">Info</string>
+    <string name="nfc_tag_written">Your NFC tag has been written.</string>
+    <bool name="nfc_write_enabled">true</bool>
+    <bool name="nfc_read_only">false</bool>
+    
+    <string name="add_new_address_button_string">Add new address</string>
+    <string name="select_add_address">SELECT OR ADD AN ADDRESS</string>
+    <string name="edit_button_address">Edit Address</string>
+    <string name="delete_button_address">Delete Address</string>
+    <string name="zero_items_string">0 items</string>
+    <string name="zero_price_string">£0.00</string>
+    <string name="product_image_thumbnail">Product Image Thumbnail</string>
+    <string name="cartentry_product_title">Product title</string>
+    <string name="cartentry_base_price">2,117.00 $</string>
+    <string name="cartentry_product_quantity">12</string>
+    <string name="cartentry_company_name">Company name</string>
+    <string name="cartentry_product_quantity_string">Quantity</string>
+    <string name="cartentry_total_string">Total</string>
+    <string name="cartentry_delete_button_title">Delete</string>
+    <string name="cartentry_change_qty_button_string">Change Qty</string>
+    <string name="cart_checkout_button">Checkout</string>
+    <string name="checkout_confirm_order_button">Confirm Order</string>
+    <string name="delivery_address_label">1. Delivery address</string>
+    <string name="delivery_method_label">2. Delivery method</string>
+    <string name="payment_details_label">3. Payment details</string>
+    <string name="delivery_address_confirmation_label">Delivery address</string>
+    <string name="delivery_method_confirmation_label">Delivery method</string>
+    <string name="payment_details_confirmation_label">Payment details</string>
+    <string name="select_delivery_address">Select a delivery address</string>
+    <string name="select_delivery_mode">Select a delivery mode</string>
+    <string name="select_payment_method">Select a payment method</string>
+    <string name="summary_string">SUMMARY</string>
+    <string name="add_new_payment_label">Add new payment</string>
+    <string name="edit_payment_button">Edit Payment</string>
+    <string name="delete_payment_button">Delete Payment</string>
+    <string name="promotion_label">Promotion</string>
+    <string name="vat_label">VAT</string>
+    <string name="total_label">Total</string>
+    <string name="items_label">Items</string>
+    <string name="price_placeholder_string">00.00</string>
+    <string name="basket_details_label">Basket details</string>
+    <string name="details_label">Details</string>
+    <string name="delivery_charge_label">Delivery</string>
+    <string name="thank_you_order_label">Thank you for your purchase!</string>
+    <string name="placed_on_placeholder_text">Placed on</string>
+    <string name="order_confirmation_text">You will receive an order confirmation email with details of your order</string>
+    <string name="your_order_text">Your order</string>
+    <string name="order_details_text">Order Details</string>
+    <string name="order_completed_text">Completed Order</string>
+    <string name="order_status_placeholder_text">Order Status</string>
+    <string name="delivery_address_placeholder_text">Delivery Address</string>
+    <string name="n_of_m_results">Showing %1$s of %2$s products</string>
+    <string name="n_results">%1$s total products</string>
+    <string name="one_result">1 product</string>
+    <string name="no_results">No products</string>
+    <string name="exit_title">Exit</string>
+    <string name="exit_text">Are you sure you want to exit?</string>
+    <string name="loading_message">Loading&#8230;</string>
+    <string name="loading_message_default">Loading data, please wait...</string>
+    <string name="hyformtextentrycell">HYFormTextEntryCell</string>
+    <string name="placeholder_brand_name">Brand Name</string>
+    <string name="placeholder_product_name">Product Name</string>
+    <string name="placeholder_product_price">$3000.00</string>
+    <string name="placeholder_stock">Only few left</string>
+    <string name="cartentry_quantity_placeholder">Quantity : </string>
+    <string name="store_name_placeholder_string">Store Name</string>
+    <string name="address_placeholder">Address</string>
+    <string name="phone_placeholder">Phone</string>
+    <string name="openinghours_placeholder">Opening Hours</string>
+    <string name="get_direction_placeholder">Get Directions</string>
+    <string name="show_maps_placeholder">Show in Maps</string>
+    <string name="features_placeholder">Features</string>
+    <string name="complete_your_information">PLEASE COMPLETE YOUR INFORMATION</string>
+    <string name="agree_with_terms">Agree with the Terms &amp; Conditions</string>
+    <string name="select_delivery_method">SELECT DELIVERY METHOD</string>
+    <string name="select_add_payment">SELECT OR ADD PAYMENT DETAILS</string>
+    <string name="select_update_payment">SELECT TO DELETE OR EDIT</string>
+    <string name="select_address">SELECT ADDRESS</string>
+    <string name="save">Save</string>
+    <string name="update_profile_button_string">Update Profile</string>
+    <string name="save_address">Save Address</string>
+    <string name="save_payment">Save Payment</string>
+    <string name="add_address">Add Address</string>
+    <string name="edit_address">Edit Address</string>
+
+    <!-- Store -->
+    <string name="store_title">Store Finder</string>
+    <string name="store_details_title">Store Details</string>
+    <string name="store_no_latitude_longitude">No latitude/longitude found for this store.</string>
+    <string name="store_empty_placeholder">Sorry, the store locator could not find any stores. Please try again.</string>
+    <string name="geofence_notification_store_title">Store close to you!</string>
+    <string name="geofence_notification_store_text">You are passing close to the store %1$s</string>
+    
+    <!-- UI Components -->
+    <string name="ui_components_spinner_prompt">spinner_dropdown.xml using the following drawables</string>
+    
+    <!-- Geolocation & Geofencing -->
+    <string name="geolocate_getting_position">Trying to get your position...</string>
+    <string name="enable_location_services">Enable location services.</string>
+    <string name="location_services_not_enabled_title_dialog">Location services disabled</string>
+    <string name="location_services_not_enabled_msg_dialog">This application needs access to your location. Please turn on Location Services.</string>
+    <string name="location_services_not_enabled_msg_button_enable">Enable</string>
+    <string name="location_services_not_enabled_msg_button_cancel">Cancel</string>
+    
+    <!-- Order / Cart -->
+    <string name="no_orders">No orders</string>
+    <string name="no_items_in_cart">No items in cart</string>
+   	<string name="order_text">Order - %1$s</string>
+   	<string name="order_text_number"> (%1$s)</string>
+   
+   	<!-- Misc -->
+   	<string name="share_dialog_title">Share...</string>
+   	
+    <!-- Generic -->
+  	<string name="generic_title_confirm">Confirm</string>
+    <string name="generic_title_select_value">Select a value</string>
+    <string name="generic_title_more_information">More Information</string>
+    <string name="generic_title_description">Description</string>
+    <string name="generic_n_of_m_results_page">Showing %1$s of %2$s page(s)</string>
+    <string name="generic_n_results_page">%1$s total page(s)</string>
+    <string name="generic_success_message_popup">Success!</string>
+    <string name="generic_failed_try_again_message_popup">Failed! Try again.</string>
+    <string name="generic_failed_message_popup">Failed!</string>
+    <string name="generic_missing_required_fields">Some required fields are empty.</string>
+    
+    <!-- ///////////////////////////////////////// -->
+    <!-- ///////////////////////////////////////// -->
+    <!-- ////////////// ERRORS /////////////////// -->
+  	<!-- ///////////////////////////////////////// -->
+   	<!-- ///////////////////////////////////////// -->
+    <string name="register_invalidValues">Cannot submit, please check your input.</string>
+    <string name="form_error_message_placeholder">Error Message</string>
+    <string name="error_invalidPhoneNumber">There was a problem with the telephone number.</string>
+    
+    <!-- Account -->
+   	<string name="error_password_mismatch">Password mismatch</string>
+   	<string name="error_login">Login failed! Try again</string>
+     
+    <!-- Products -->
+    <string name="error_product_not_found">No product found in the system</string>
+    
+    <!-- Orders -->
+    <string name="error_order_not_found">No order found in the system</string>
+    
+    <!-- Barcode -->
+    <string name="error_barcode_no_action">Unknown action associated with the scanned value: %1$s</string>
+    <string name="error_barcode_no_product_found">There is no product matching this value in the system.</string>
+    <string name="error_barcode_no_order_found">There is no order matching this value in the system.</string>
+    
+    <!-- Location -->
+    <string name="error_geolocation_not_able_to_geolocate">Error trying to geolocate your position, please verify your configuration.</string>
+    <string name="error_geofence_lib_not_available">You are missing the Google Play Services library to use geofencing, please install it.</string>
+    <string name="error_geofence_not_activated">The geofence functionnality is not activated for the application.</string>
+    
+    <!-- NFC -->
+    <string name="error_nfc_no_ndef">Messages can only be written to NDEF or NDEFFormatable tags.</string>
+    <string name="error_nfc_format">Unable to write message due to formatting error. Make sure you use NDEF or NDEFFormatable tags!</string>
+    <string name="error_nfc_io">Unable to write message due to i/o exception. Please make sure you do not move your phone or tag during the write process!</string>
+    <string name="error_nfc_readonly_size">Unable to write mesage as the tag is readonly or the capacity is not large enough.</string>
+    <string name="error_nfc_no_ndef_message_sent">"No NDEF Message for Tag writing was sent, please try again!</string>
+    <string name="error_nfc_not_supported">Your phone does not support NFC or NFC is turned off...</string>
+    
+</resources>

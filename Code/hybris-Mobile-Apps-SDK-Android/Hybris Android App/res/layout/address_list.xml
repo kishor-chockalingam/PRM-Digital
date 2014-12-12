@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/marginMainLeftAndRight"
+    android:paddingRight="@dimen/marginMainLeftAndRight" >
+
+    <TextView
+        android:id="@+id/textViewSectionHeader"
+        style="@style/TextSectionHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginMainTopAndBottom"
+        android:text="@string/select_add_address" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dividerMainSection"
+        android:background="@color/dividerMainSection" />
+
+    <ListView
+        android:id="@+android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dividerMainList"
+        android:background="@color/dividerMainList" />
+
+</LinearLayout>

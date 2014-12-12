@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/listItemSingleLineHeight"
+    tools:ignore="UseCompoundDrawables" >
+
+    <ImageView
+        android:id="@+id/imageViewListIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/more_information_label"
+        android:src="@drawable/disclosure_selector" />
+
+    <TextView
+        android:id="@+id/textViewSingleLine"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/marginSmallLeftAndRight"
+        android:layout_toLeftOf="@id/imageViewListIndicator" />
+
+</RelativeLayout>

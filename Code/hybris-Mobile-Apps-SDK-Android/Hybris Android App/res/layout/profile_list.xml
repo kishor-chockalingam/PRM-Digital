@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:paddingTop="@dimen/marginPseudoSpinnerBottom"
+        android:paddingLeft="@dimen/marginMainLeftAndRight"
+        android:paddingRight="@dimen/marginMainLeftAndRight" >
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/containerButtonUpdateProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bgFooter"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btnUpdateProfile"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/buttonMainHeight"
+            android:layout_marginBottom="@dimen/marginSmallTopAndBottom"
+            android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+            android:layout_marginRight="@dimen/marginMainLeftAndRight"
+            android:layout_marginTop="@dimen/marginSmallTopAndBottom"
+            android:onClick="updateProfile"
+            android:text="@string/update_profile_button_string" />
+    </LinearLayout>
+
+</LinearLayout>

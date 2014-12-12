@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Key for the GoogleMaps API -->
+   	<string name="maps_key">BETA_IDENTIFIER</string>
+	<string name="maps_url_directions">http://maps.google.com/maps?saddr=%1$s&amp;daddr=%2$s</string>
+	<string name="maps_url_query">http://maps.google.com/maps?q=%1$s</string>
+    <!-- Key for the HockeyApp API -->
+    <string name="hockeyapp_key">BETA_IDENTIFIER</string>
+    <!-- Maximum number of seconds to try locating the user -->
+    <string name="geolocation_max_seconds_trial">15</string>
+    <!-- Default radius for the geolocation -->
+    <string name="geolocation_default_radius">1500</string>
+    <!-- Default radius for the geofence -->
+    <string name="geofence_default_radius">1000</string>
+    <!-- Url to write/read from the NFC tags -->
+    <string name="nfc_url">http://mapi.hybris.com:9001/yacceleratorstorefront/p/%1$s?site=electronics</string>
+
+    <!-- plist files -->
+    <string name="address_plist">Address.plist</string>
+    <string name="payment_details_plist">PaymentDetails.plist</string>
+    <string name="profile_plist">Profile.plist</string>
+    <string name="user_registration_plist">UserRegistration.plist</string>
+    <string name="change_login_plist">ChangeLogin.plist</string>
+    <string name="change_password_plist">ChangePassword.plist</string>
+    
+</resources>

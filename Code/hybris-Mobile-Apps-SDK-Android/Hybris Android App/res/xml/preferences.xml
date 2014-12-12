@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:summary=""
+        android:title="Web Services" >
+        
+        <ListPreference
+            android:defaultValue="https://mobiledev.hybris.com:9002"
+            android:entries="@array/baseURLOptions"
+            android:entryValues="@array/baseURLValues"
+            android:key="web_services_base_url_preference"
+            android:title="Base URL" />
+
+        <EditTextPreference
+            android:defaultValue="http://"
+            android:dialogTitle="Specific URL"
+            android:key="web_services_specific_base_url"
+            android:title="Specific URL" />
+
+        <SwitchPreference
+            android:defaultValue="Off"
+            android:key="web_services_toggle_specific_base_url"
+            android:switchTextOff="Off"
+            android:switchTextOn="On"
+            android:title="Use Specific URL" />
+
+        <ListPreference
+            android:defaultValue="en"
+            android:entries="@array/languageOptions"
+            android:entryValues="@array/languageValues"
+            android:key="web_services_language_preference"
+            android:title="Language" />
+        <ListPreference
+            android:defaultValue="electronics/"
+            android:entries="@array/catalogOptions"
+            android:entryValues="@array/catalogValues"
+            android:key="web_services_catalog_url_suffix_preference"
+            android:title="Catalog" />
+
+        <SwitchPreference
+            android:defaultValue="Off"
+            android:key="geofencing_capability"
+            android:switchTextOff="Off"
+            android:switchTextOn="On"
+            android:title="Enable geofencing" />
+        
+        <EditTextPreference
+            android:defaultValue=""
+            android:dialogTitle="Default Radius"
+            android:inputType="numberDecimal|numberSigned"
+            android:key="geofencing_default_radius"
+            android:title="Default Radius" />
+        
+        <SwitchPreference
+            android:defaultValue="Off"
+            android:key="geofencing_spoof_override"
+            android:switchTextOff="Off"
+            android:switchTextOn="On"
+            android:title="Spoof Location Override" />
+
+        <EditTextPreference
+            android:defaultValue=""
+            android:dialogTitle="Geofencing Latitude"
+            android:inputType="numberDecimal|numberSigned"
+            android:key="geofencing_latitude"
+            android:title="Geofencing Latitude" />
+    
+        <EditTextPreference
+            android:defaultValue=""
+            android:dialogTitle="Geofencing Longitude"
+            android:inputType="numberDecimal|numberSigned"
+            android:key="geofencing_longitude"
+            android:title="Geofencing Longitude" />
+        
+        <EditTextPreference
+            android:defaultValue=""
+            android:dialogTitle="Geofencing Radius"
+            android:inputType="numberDecimal|numberSigned"
+            android:key="geofencing_radius"
+            android:title="Geofencing Radius" />
+        
+    </PreferenceCategory>
+
+</PreferenceScreen>

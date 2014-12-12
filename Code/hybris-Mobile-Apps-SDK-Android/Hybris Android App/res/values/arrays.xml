@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="baseURLOptions">
+        <item>MobileDev (New OCC)</item>
+        <item>HAL</item>
+        <item>api.hybrisdev.com</item>
+        <item>mapi.hybris.com</item>
+        <item>EarlyBird</item>
+        <item>yacceleratorstorefront</item>
+    </string-array>
+    <string-array name="baseURLValues">
+        <item>https://mobiledev.hybris.com:9002</item>
+        <item>https://192.168.1.100:9002</item>
+        <item>https://api.hybrisdev.com:9002</item>
+        <item>https://mapi.hybris.com:9002</item>
+        <item>https://earlybird.hybris.com:9002</item>
+        <item>http://46.137.96.43:9001</item>
+    </string-array>
+    <string-array name="languageOptions">
+        <item>en</item>
+    </string-array>
+    <string-array name="languageValues">
+        <item>en</item>
+    </string-array>
+    <string-array name="catalogOptions">
+        <item>electronics</item>
+        <item>apparel-uk</item>
+    </string-array>
+    <string-array name="catalogValues">
+        <item>electronics/</item>
+        <item>apparel-uk/</item>
+    </string-array>
+    <string-array name="ui_components_spinner">
+        <item>spinner_default.9.png</item>
+        <item>spinner_disabled.9.png</item>
+        <item>spinner_pressed.9.png</item>
+    </string-array>
+
+</resources>

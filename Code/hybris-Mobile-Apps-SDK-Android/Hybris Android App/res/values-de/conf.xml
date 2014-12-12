@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- plist files -->
+   	<string name="address_plist">Address.de.plist</string>
+	<string name="payment_details_plist">PaymentDetails.de.plist</string>
+	<string name="profile_plist">Profile.de.plist</string>
+	<string name="user_registration_plist">UserRegistration.de.plist</string>
+	<string name="change_login_plist">ChangeLogin.de.plist</string>
+	<string name="change_password_plist">ChangePassword.de.plist</string>
+    
+</resources>

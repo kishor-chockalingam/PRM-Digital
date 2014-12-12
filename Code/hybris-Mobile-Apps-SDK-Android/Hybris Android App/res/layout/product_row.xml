@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/marginMainTopAndBottom"
+    android:paddingTop="@dimen/marginMainTopAndBottom" >
+
+    <ImageView
+        android:id="@+id/img_product"
+        style="@style/ListItemImageView"
+        android:layout_width="@dimen/listItemImageWidth"
+        android:layout_height="@dimen/listItemImageHeight"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="@dimen/marginlistItemImage"
+        android:contentDescription="@string/product_image_thumbnail" />
+
+    <TextView
+        android:id="@+id/lbl_stock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/img_product"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/marginSmallLeftAndRight"
+        android:gravity="right|bottom"
+        android:singleLine="true"
+        android:textColor="@color/textVeryLight"
+        android:textSize="@dimen/textSizeVerySmall" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/img_product"
+        android:layout_alignTop="@id/img_product"
+        android:layout_toLeftOf="@id/lbl_stock"
+        android:layout_toRightOf="@id/img_product"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/lbl_productManufacturer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/cartentry_company_name"
+            android:textSize="@dimen/textSizeVerySmall" />
+
+        <TextView
+            android:id="@+id/lbl_product_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@string/cartentry_product_title"
+            android:textSize="@dimen/textSizeMedium" />
+
+        <TextView
+            android:id="@+id/lbl_price"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:ellipsize="end"
+            android:gravity="bottom"
+            android:singleLine="true"
+            android:text="@string/cartentry_base_price"
+            android:textColor="@color/textHighlighted"
+            android:textSize="@dimen/textSizeMedium"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageViewListIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/disclosure_selector" />
+
+</RelativeLayout>

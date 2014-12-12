@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/listItemTwoLinesHeight"
+    android:minHeight="@dimen/listItemTwoLinesHeight"
+    android:paddingLeft="@dimen/marginMainTopAndBottom"
+    android:paddingRight="@dimen/marginMainTopAndBottom" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/marginMainLeftAndRight"
+        android:background="@android:color/transparent"
+        android:duplicateParentState="true"
+        android:src="@drawable/disclosure_selector" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/imageView1" >
+
+        <TextView
+            android:id="@+id/order_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/order_status_label"
+            android:layout_marginRight="2dp" />
+
+        <TextView
+            android:id="@+id/order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/order_date"
+            android:layout_toRightOf="@id/order_date"
+            android:text="@string/order_status_label"
+            android:textSize="@dimen/textSizeSmall" />
+
+        <TextView
+            android:id="@+id/status_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/order_date"
+            android:layout_marginRight="2dp"
+            android:text="@string/order_status_label"
+            android:textSize="@dimen/textSizeVerySmall" />
+
+        <TextView
+            android:id="@+id/status_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/status_label"
+            android:layout_alignBaseline="@id/status_label"
+            android:textColor="@color/textHighlighted"
+            android:text="@string/order_status_label"
+            android:textSize="@dimen/textSizeVerySmall" />
+    </RelativeLayout>
+
+</RelativeLayout>

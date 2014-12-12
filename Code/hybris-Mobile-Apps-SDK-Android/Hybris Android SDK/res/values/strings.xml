@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="stock_details_low_stock_with_value">Only %1$d left</string>
+    <string name="stock_details_in_stock">In stock</string>
+    <string name="stock_details_out_of_stock">Out of stock</string>
+    
+    <string name="loading_dialog_title">Loading&#8230;</string>
+    <string name="loading_dialog_message">Loading data, please wait...</string>
+    
+</resources>

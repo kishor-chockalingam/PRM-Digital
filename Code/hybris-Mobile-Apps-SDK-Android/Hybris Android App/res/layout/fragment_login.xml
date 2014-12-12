@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/marginMainLeftAndRight"
+    android:paddingRight="@dimen/marginMainLeftAndRight"  >
+
+    <EditText
+        android:id="@+id/txt_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/listItemFormHeight"
+        android:layout_marginLeft="@dimen/marginEditTextLeftAndRight"
+        android:layout_marginRight="@dimen/marginEditTextLeftAndRight"
+        android:hint="@string/email_address"
+        android:imeOptions="actionNext"
+        android:inputType="textEmailAddress"
+        android:paddingTop="@dimen/marginLargeTopAndBottom" />
+
+    <requestFocus />
+
+    <EditText
+        android:id="@+id/txt_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/listItemFormHeight"
+        android:layout_marginLeft="@dimen/marginEditTextLeftAndRight"
+        android:layout_marginRight="@dimen/marginEditTextLeftAndRight"
+        android:hint="@string/password_hint"
+        android:imeOptions="actionGo"
+        android:inputType="textPassword"
+        android:paddingTop="@dimen/marginLargeTopAndBottom"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/buttonMainHeight"
+        android:layout_marginBottom="@dimen/marginLargeTopAndBottom"
+        android:layout_marginTop="@dimen/marginLargeTopAndBottom"
+        android:onClick="login"
+        android:text="@string/login_button_string" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dividerMainList"
+        android:background="@color/dividerMainList" />
+
+    <TextView
+        android:id="@+id/btn_forgotten_password"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/buttonSmallHeight"
+        android:background="@drawable/list_selector"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="requestPassword"
+        android:text="@string/forgotten_password_string"
+        android:textColor="@color/textHighlightedLight"
+        android:textSize="@dimen/textSizeSmall" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/dividerMainList"
+        android:background="@color/dividerMainList" />
+
+</LinearLayout>

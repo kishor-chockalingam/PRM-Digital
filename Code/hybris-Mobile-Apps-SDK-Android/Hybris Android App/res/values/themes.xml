@@ -1,0 +1,27 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="HybrisTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:listViewStyle">@style/HYListView</item>
+        <item name="android:scrollViewStyle">@style/HYScrollView</item>
+        <item name="android:textViewStyle">@style/TextMain</item>
+        <item name="android:editTextStyle">@style/EditTextMain</item>
+        <item name="android:windowBackground">@color/bgMain</item>
+        <item name="android:checkboxStyle">@style/CheckBoxMain</item>
+        <item name="android:actionBarItemBackground">@drawable/selector_action_item</item>
+		<item name="android:buttonStyle">@style/ButtonMain</item>
+        <item name="android:spinnerStyle">@style/SpinnerMain</item>
+        <item name="android:actionModeStyle">@style/HybrisTheme.ActionMode</item>
+        <item name="android:actionBarStyle">@style/HybrisTheme.ActionBarStyle</item>
+        <item name="android:actionOverflowButtonStyle">@style/HybrisTheme.ActionBarOverflowStyle</item>
+        <item name="android:actionModeCloseDrawable">@drawable/ic_menu_checkmark</item>
+        <item name="android:actionBarTabStyle">@style/TabView</item>
+        <item name="android:actionBarTabBarStyle">@style/TabBar</item>
+        <item name="android:actionBarTabTextStyle">@style/TabText</item>
+    </style>
+
+    <!-- <style name="HybrisTheme.Tabs"> -->
+    <!-- <item name="@android:attr/actionBarTabTextStyle">@style/TabTextStyle</item> -->
+    <!-- <item name="android:actionBarTabBarStyle">@style/TabBarStyle</item> -->
+    <!-- </style> -->
+
+</resources>
