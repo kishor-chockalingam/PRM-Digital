@@ -1,31 +1,22 @@
 /**
  * 
  */
-package com.hybris.mobile.beacons;
+package com.accenture.hybris.mobile.beacons;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import android.app.Activity;
 import android.app.IntentService;
-import android.app.Service;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
-import android.os.Binder;
 import android.os.IBinder;
-import android.os.Bundle;
 import android.os.RemoteException;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import com.accenture.hybris.mobile.beacons.BeaconsReceiverNotifier;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 import com.estimote.sdk.BeaconManager.MonitoringListener;
-import com.estimote.sdk.Utils.*;
 import com.estimote.sdk.utils.L;
-import com.hybris.mobile.Hybris;
-import com.hybris.mobile.beacons.BeaconsReceiverNotifier;
 
 /**
  * @author vijay

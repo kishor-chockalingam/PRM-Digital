@@ -1,4 +1,4 @@
-package com.hybris.mobile.beacons;
+package com.accenture.hybris.mobile.beacons;
 
 import java.io.IOException;
 

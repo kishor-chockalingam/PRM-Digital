@@ -262,17 +262,17 @@ false
         <activity android:name="com.google.zxing.client.android.HelpActivity" >
         </activity>
 
-        <receiver android:name="com.hybris.mobile.beacons.BeaconReceiver" >
+        <receiver android:name="com.accenture.hybris.mobile.beacons.BeaconReceiver" >
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.hybris.mobile.beacons.BeaconsReceiverNotifier" >
+        <receiver android:name="com.accenture.hybris.mobile.beacons.BeaconsReceiverNotifier" >
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="com.hybris.mobile.beacons.BeaconsBgService.action.NOTIFY" />
+                <action android:name="com.accenture.hybris.mobile.beacons.BeaconsBgService.action.NOTIFY" />
             </intent-filter>
         </receiver>
 
@@ -282,7 +282,7 @@ false
             android:exported="false"
             android:process=":remote" />
         <service
-            android:name="com.hybris.mobile.beacons.BeaconBgService"
+            android:name="com.accenture.hybris.mobile.beacons.BeaconBgService"
             android:exported="false" >
         </service>
     </application>

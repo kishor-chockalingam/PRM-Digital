@@ -25,6 +25,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import com.accenture.hybris.mobile.beacons.BeaconBgService;
+import com.accenture.hybris.mobile.beacons.Constants;
 import com.hybris.mobile.DataConstants;
 import com.hybris.mobile.Hybris;
 import com.hybris.mobile.InternalConstants;
