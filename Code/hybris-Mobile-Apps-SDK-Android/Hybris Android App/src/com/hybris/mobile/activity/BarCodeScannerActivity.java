@@ -89,13 +89,18 @@ public class BarCodeScannerActivity extends HybrisActivity implements Callback
 			// We run the task to check the format and data availability of the barcode scanned
 				new CheckBarcodeFormatAndValueTask().execute(contents, format);
 			} else {
-				isScannerRunning = false;
-				WebView myWebView = new WebView(this);
-				myWebView = (WebView) findViewById(R.layout.app_web_view);
-				Log.i(TAG, "calling webview with url: " + contents);
-				myWebView.loadUrl(contents);
-				WebSettings webSettings = myWebView.getSettings();
-				webSettings.setJavaScriptEnabled(true);
+				//isScannerRunning = false;
+//				WebView myWebView = new WebView(this);
+//				myWebView = (WebView) findViewById(R.layout.app_web_view);
+				Log.i(TAG, "calling webview activity with url: " + contents);
+//				myWebView.loadUrl(contents);
+//				WebSettings webSettings = myWebView.getSettings();
+//				webSettings.setJavaScriptEnabled(true);
+				Intent localintent = new Intent(Hybris.getAppContext(), ScanCodeWebViewActivity.class);
+				localintent.putExtra(Constants.DATA, contents);
+				localintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				Log.i(TAG,"Sending intent to start webview for url");
+				Hybris.getAppContext().startActivity(localintent);
 			}
 		}
 		else if (resultCode == RESULT_CANCELED)

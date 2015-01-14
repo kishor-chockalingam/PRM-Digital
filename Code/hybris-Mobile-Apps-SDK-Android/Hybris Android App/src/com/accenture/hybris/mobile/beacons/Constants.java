@@ -10,6 +10,8 @@ public class Constants {
     public static final int RESULT_ENTRY = 4;
     public static final int RESULT_EXIT = 5;
     public static final int RESULT_CAMERA_ENTRY = 6;
+    public static final int RESULT_GENERAL = 7;
+    
 
     public static final String FILTER = "com.hybris.mobile.MONITOR_REGION";
     public static final String COMMAND = "COMMAND";

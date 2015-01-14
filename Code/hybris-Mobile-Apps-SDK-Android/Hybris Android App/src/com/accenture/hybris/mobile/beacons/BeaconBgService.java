@@ -116,7 +116,10 @@ public class BeaconBgService extends IntentService {
 								.contentEquals(beacon.getProximityUUID())) {
 							Log.i(TAG, "Matched to camera dept in store");
 							pushNotification(Constants.RESULT_CAMERA_ENTRY);
-						}
+						} else {
+							Log.i(TAG, "Entered a region of beacon in store");
+							pushNotification(Constants.RESULT_GENERAL);
+						}							
 					}
 				}
 			}
