@@ -26,6 +26,8 @@
 #import "ALAlertBanner.h"
 
 #import "BeaconsService.h"
+#import "HYWebViewController.h"
+#import "HYTabBarController.h"
 
 #define IOS8 [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0
 
@@ -329,6 +331,16 @@ static void uncaughtExceptionHandler(NSException *exception);
                                                                             title:@"Welcome to our Store!" subtitle:@"30% off on Digital cameras for today only."
                                                                       tappedBlock:^(ALAlertBanner *alertBanner) {
                                                                           [alertBanner hide];
+                                                                          
+                                                                          HYWebViewController *webViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
+                                                                          NSString *url = [NSString stringWithFormat:@"%@%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"web_services_base_url_preference"], @"/bncstorefront/electronics/en/Open-Catalogue/Cameras/Film-cameras/FUN-Flash-Single-Use-Camera%2C-27%2B12-pic/p/779841?site=electronics"];
+                                                                          webViewController.urlString = url;
+                                                                          if ([self.window.rootViewController isKindOfClass:[HYTabBarController class]])
+                                                                          {
+                                                                              
+                                                                              UIViewController *nav = ((HYTabBarController *)(self.window.rootViewController)).selectedViewController;
+                                                                              [(HYNavigationViewController *)nav pushViewController:webViewController animated:YES];
+                                                                          }
                                                                       }];
                         banner.secondsToShow = 8;
                         banner.showAnimationDuration = .25f;
@@ -435,6 +447,7 @@ static void uncaughtExceptionHandler(NSException *exception);
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [self registerNetworkActivityIndicatorForObject:[HYWebService shared]];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+
 }
 
 
