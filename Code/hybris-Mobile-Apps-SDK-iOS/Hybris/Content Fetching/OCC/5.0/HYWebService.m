@@ -93,6 +93,96 @@ PureSingleton(HYWebService);
 
 
 #pragma mark - Public API methods
+- (void)postHealthDataForURL:(NSString*)url inputData:(NSData*)data withCompletionBlock:(NSStringNSErrorBlock)completionBlock
+{
+    (void)[[HYWebServiceDataProvider alloc] authorizedURL:url httpMethod:@"POST" httpBody:data completionBlock:^(NSData *backData, NSError *error) {
+        if (completionBlock) {
+            if (error) {
+                dispatch_async (dispatch_get_main_queue (), ^{ completionBlock (nil, error);
+                });
+                return;
+            }
+            
+            
+            if (backData) {
+                NSError *stringError;
+                NSString *strResult = [[NSString alloc] initWithData:backData encoding:NSUTF8StringEncoding];
+                
+                
+                if (stringError) {
+                    if (completionBlock) {
+                        dispatch_async (dispatch_get_main_queue (), ^{ completionBlock (nil, stringError);
+                        });
+                    }
+                    
+                    return;
+                }
+                
+                if (completionBlock) {
+                    dispatch_async (dispatch_get_main_queue (), ^{ completionBlock (strResult, error);
+                    });
+                }
+                
+                
+            }
+            else {
+                if (completionBlock) {
+                    completionBlock (nil, error);
+                }
+            }
+        }
+
+    }];
+
+}
+
+- (void)fetchItemWithURL:(NSString*)url inputData:(NSData*)data withCompletionBlock:(NSDataNSErrorBlock)completionBlock
+{
+    (void)[[HYWebServiceDataProvider alloc] initWithURL:url httpMethod:@"GET" httpBody:data  completionBlock:^(NSData *jsonData, NSError *error) {
+        if (completionBlock)
+        {
+            if (error)
+            {
+                dispatch_async (dispatch_get_main_queue (), ^{ completionBlock (nil, error);
+                });
+                return;
+            }
+            
+            if (jsonData)
+            {
+                NSError *stringError;
+                
+                if (stringError)
+                {
+                    if (completionBlock)
+                    {
+                        dispatch_async (dispatch_get_main_queue (), ^{ completionBlock (nil, stringError);
+                        });
+                    }
+                    
+                    return;
+                }
+                
+                if (completionBlock)
+                {
+                    dispatch_async (dispatch_get_main_queue (), ^{ completionBlock (jsonData, error);
+                    });
+                }
+                
+            }
+        }
+        
+        else
+        {
+            if (completionBlock)
+            {
+                completionBlock (nil, error);
+            }
+        }
+        
+    }];
+    
+}
 
 /// This only returns HYProduct objects in its block
 - (void)fetchItemsForQuery:(HYQuery *)query resetQuery:(BOOL)reset withCompletionBlock:(NSDictionaryNSErrorBlock)completionBlock {

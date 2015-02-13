@@ -34,5 +34,13 @@
  */
 - (void)suggestionsForQuery:(NSString *)query completionBlock:(NSArrayBlock)completionBlock;
 
+/**
+ *  post health data
+ */
+- (void)postHealthDataForURL:(NSString*)url inputData:(NSData*)data withCompletionBlock:(NSStringNSErrorBlock)completionBlock;
 
+/**
+ *  fetch promotional message
+ */
+- (void)fetchItemWithURL:(NSString*)url inputData:(NSData*)data withCompletionBlock:(NSDataNSErrorBlock)completionBlock;
 @end

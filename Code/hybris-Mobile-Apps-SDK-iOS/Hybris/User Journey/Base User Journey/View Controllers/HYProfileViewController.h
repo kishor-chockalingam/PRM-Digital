@@ -13,8 +13,11 @@
 
 #import "HYTableViewController.h"
 #import "ModalViewControllerDelegate.h"
+//healthkit
+#import <HealthKit/HealthKit.h>
+#import "AccHealthDataCollector.h"
 
-@interface HYProfileViewController:HYTableViewController<ModalViewControllerDelegate>
+@interface HYProfileViewController:HYTableViewController<ModalViewControllerDelegate, AccHealthDataCollectorDelegate>
 
 @property (weak) id<ModalViewControllerDelegate>delegate;
 - (IBAction)logout:(id)sender;
@@ -22,5 +25,8 @@
 @property (weak, nonatomic) IBOutlet HYLabel *profileEmailLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logInOutButton;
 @property (weak, nonatomic) IBOutlet HYLabel *notLoggedInLabel;
+
+//healthkit
+@property (nonatomic) HKHealthStore *healthStore;
 
 @end

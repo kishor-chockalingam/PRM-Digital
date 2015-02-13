@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		350720FA1A42ADBB00DF7392 /* JawboneService.m in Sources */ = {isa = PBXBuildFile; fileRef = 350720F91A42ADBB00DF7392 /* JawboneService.m */; };
+		350F92C41A89A8250066A4A2 /* AccHealthDataCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 350F92B81A89A8250066A4A2 /* AccHealthDataCollector.m */; };
+		350F92C51A89A8250066A4A2 /* AccHealthDataOuter.m in Sources */ = {isa = PBXBuildFile; fileRef = 350F92BA1A89A8250066A4A2 /* AccHealthDataOuter.m */; };
+		350F92C61A89A8250066A4A2 /* AccHealthDataRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 350F92BC1A89A8250066A4A2 /* AccHealthDataRegister.m */; };
+		350F92C71A89A8250066A4A2 /* HealthDataWithUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 350F92BE1A89A8250066A4A2 /* HealthDataWithUnit.m */; };
+		350F92C81A89A8250066A4A2 /* HKHealthStore+SampleType.m in Sources */ = {isa = PBXBuildFile; fileRef = 350F92C01A89A8250066A4A2 /* HKHealthStore+SampleType.m */; };
+		350F92CA1A89A8250066A4A2 /* NSSet+HealthKitPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 350F92C31A89A8250066A4A2 /* NSSet+HealthKitPermission.m */; };
+		350F92CC1A89D6740066A4A2 /* LISENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 350F92CB1A89D6740066A4A2 /* LISENCE.txt */; };
+		350F92CE1A89D7920066A4A2 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350F92CD1A89D7920066A4A2 /* HealthKit.framework */; };
 		352052FF1A10A10400817FD0 /* HYScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352052FE1A10A10400817FD0 /* HYScannerViewController.m */; };
 		352053051A10A19900817FD0 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 352053011A10A19900817FD0 /* line@2x.png */; };
 		352053061A10A19900817FD0 /* pick_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 352053021A10A19900817FD0 /* pick_bg@2x.png */; };
@@ -106,7 +114,6 @@
 		C2AE5B0616DD55D1003BBFC7 /* add-to-cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AE5B0516DD55D1003BBFC7 /* add-to-cart@2x.png */; };
 		C2B4179C17B137EE00F920CA /* de.bitstadium.HockeySDK-iOS-3.0.0.docset in Resources */ = {isa = PBXBuildFile; fileRef = C2B4179317B137EE00F920CA /* de.bitstadium.HockeySDK-iOS-3.0.0.docset */; };
 		C2B4179D17B137EE00F920CA /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B4179517B137EE00F920CA /* HockeySDK.framework */; };
-		C2B4179E17B137EE00F920CA /* HockeySDK.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C2B4179717B137EE00F920CA /* HockeySDK.xcconfig */; };
 		C2B4179F17B137EE00F920CA /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C2B4179817B137EE00F920CA /* HockeySDKResources.bundle */; };
 		C2BB427C178B4B8400CD551D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BB427B178B4B8400CD551D /* libz.dylib */; };
 		C2BB427E178B4BAF00CD551D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BB427D178B4BAE00CD551D /* AudioToolbox.framework */; };
@@ -389,6 +396,21 @@
 /* Begin PBXFileReference section */
 		350720F81A42ADBB00DF7392 /* JawboneService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JawboneService.h; sourceTree = "<group>"; };
 		350720F91A42ADBB00DF7392 /* JawboneService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JawboneService.m; sourceTree = "<group>"; };
+		350F927B1A8994330066A4A2 /* hybris.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = hybris.entitlements; sourceTree = "<group>"; };
+		350F92B71A89A8250066A4A2 /* AccHealthDataCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccHealthDataCollector.h; path = Health/AccHealthDataCollector.h; sourceTree = "<group>"; };
+		350F92B81A89A8250066A4A2 /* AccHealthDataCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccHealthDataCollector.m; path = Health/AccHealthDataCollector.m; sourceTree = "<group>"; };
+		350F92B91A89A8250066A4A2 /* AccHealthDataOuter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccHealthDataOuter.h; path = Health/AccHealthDataOuter.h; sourceTree = "<group>"; };
+		350F92BA1A89A8250066A4A2 /* AccHealthDataOuter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccHealthDataOuter.m; path = Health/AccHealthDataOuter.m; sourceTree = "<group>"; };
+		350F92BB1A89A8250066A4A2 /* AccHealthDataRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccHealthDataRegister.h; path = Health/AccHealthDataRegister.h; sourceTree = "<group>"; };
+		350F92BC1A89A8250066A4A2 /* AccHealthDataRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccHealthDataRegister.m; path = Health/AccHealthDataRegister.m; sourceTree = "<group>"; };
+		350F92BD1A89A8250066A4A2 /* HealthDataWithUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HealthDataWithUnit.h; path = Health/HealthDataWithUnit.h; sourceTree = "<group>"; };
+		350F92BE1A89A8250066A4A2 /* HealthDataWithUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HealthDataWithUnit.m; path = Health/HealthDataWithUnit.m; sourceTree = "<group>"; };
+		350F92BF1A89A8250066A4A2 /* HKHealthStore+SampleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HKHealthStore+SampleType.h"; path = "Health/HKHealthStore+SampleType.h"; sourceTree = "<group>"; };
+		350F92C01A89A8250066A4A2 /* HKHealthStore+SampleType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "HKHealthStore+SampleType.m"; path = "Health/HKHealthStore+SampleType.m"; sourceTree = "<group>"; };
+		350F92C21A89A8250066A4A2 /* NSSet+HealthKitPermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSSet+HealthKitPermission.h"; path = "Health/NSSet+HealthKitPermission.h"; sourceTree = "<group>"; };
+		350F92C31A89A8250066A4A2 /* NSSet+HealthKitPermission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSSet+HealthKitPermission.m"; path = "Health/NSSet+HealthKitPermission.m"; sourceTree = "<group>"; };
+		350F92CB1A89D6740066A4A2 /* LISENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LISENCE.txt; path = Health/LISENCE.txt; sourceTree = "<group>"; };
+		350F92CD1A89D7920066A4A2 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		352052FD1A10A10400817FD0 /* HYScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HYScannerViewController.h; path = "User Journey/Example User Journey/View Controllers/HYScannerViewController.h"; sourceTree = "<group>"; };
 		352052FE1A10A10400817FD0 /* HYScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HYScannerViewController.m; path = "User Journey/Example User Journey/View Controllers/HYScannerViewController.m"; sourceTree = "<group>"; };
 		352053011A10A19900817FD0 /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
@@ -987,6 +1009,7 @@
 				7F516A3D1663CDBE0041127B /* libiconv.dylib in Frameworks */,
 				D4FE9AF2169892FD003FBCED /* SystemConfiguration.framework in Frameworks */,
 				7F59943C166921DA0048232B /* MapKit.framework in Frameworks */,
+				350F92CE1A89D7920066A4A2 /* HealthKit.framework in Frameworks */,
 				FE1E1A531624377C006B759D /* QuartzCore.framework in Frameworks */,
 				7F516A391663CDA60041127B /* CoreMedia.framework in Frameworks */,
 				7F516A371663CD9A0041127B /* AVFoundation.framework in Frameworks */,
@@ -1051,6 +1074,26 @@
 				350720F91A42ADBB00DF7392 /* JawboneService.m */,
 			);
 			path = JawboneService;
+			sourceTree = "<group>";
+		};
+		350F92AA1A89A0310066A4A2 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				350F92CB1A89D6740066A4A2 /* LISENCE.txt */,
+				350F92B71A89A8250066A4A2 /* AccHealthDataCollector.h */,
+				350F92B81A89A8250066A4A2 /* AccHealthDataCollector.m */,
+				350F92B91A89A8250066A4A2 /* AccHealthDataOuter.h */,
+				350F92BA1A89A8250066A4A2 /* AccHealthDataOuter.m */,
+				350F92BB1A89A8250066A4A2 /* AccHealthDataRegister.h */,
+				350F92BC1A89A8250066A4A2 /* AccHealthDataRegister.m */,
+				350F92BD1A89A8250066A4A2 /* HealthDataWithUnit.h */,
+				350F92BE1A89A8250066A4A2 /* HealthDataWithUnit.m */,
+				350F92BF1A89A8250066A4A2 /* HKHealthStore+SampleType.h */,
+				350F92C01A89A8250066A4A2 /* HKHealthStore+SampleType.m */,
+				350F92C21A89A8250066A4A2 /* NSSet+HealthKitPermission.h */,
+				350F92C31A89A8250066A4A2 /* NSSet+HealthKitPermission.m */,
+			);
+			name = Health;
 			sourceTree = "<group>";
 		};
 		352052FC1A10A0BF00817FD0 /* Scan Classes */ = {
@@ -1301,6 +1344,7 @@
 		D43A720D155A9DB000278386 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				350F92AA1A89A0310066A4A2 /* Health */,
 				358263A91A418017005D53DF /* UUPLatformSDK */,
 				83FBCE9E1A26B8920064401E /* KeychainItemWrapper */,
 				8316EC111A25803500C82DE5 /* ALAlertBanner */,
@@ -1496,6 +1540,7 @@
 		D4A2E5B21552E80A0041DB66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				350F92CD1A89D7920066A4A2 /* HealthKit.framework */,
 				830FC01D1A130F550029AB70 /* CoreBluetooth.framework */,
 				C27471A517B1230500E593B5 /* HockeySDK.embeddedframework */,
 				C2BB427D178B4BAE00CD551D /* AudioToolbox.framework */,
@@ -1530,6 +1575,7 @@
 		D4A2E5BB1552E80A0041DB66 /* Hybris */ = {
 			isa = PBXGroup;
 			children = (
+				350F927B1A8994330066A4A2 /* hybris.entitlements */,
 				350720F71A42ADA300DF7392 /* JawboneService */,
 				830FC0191A130F430029AB70 /* BeaconsService */,
 				D43A720D155A9DB000278386 /* Lib */,
@@ -2250,13 +2296,16 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = HY;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Red Ant";
 				TargetAttributes = {
 					D4A2E5AE1552E80A0041DB66 = {
-						DevelopmentTeam = D5R5F3X4EB;
+						DevelopmentTeam = 3NV46C4W8T;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
 								enabled = 1;
 							};
 						};
@@ -2313,6 +2362,7 @@
 				D4651A0B15ECEC19004A0F43 /* CellSeparator@2x.png in Resources */,
 				D4651A0D15ECEC19004A0F43 /* ProductCellBackground@2x.png in Resources */,
 				D4651A0F15ECEC19004A0F43 /* ProductCellBackgroundSelected@2x.png in Resources */,
+				350F92CC1A89D6740066A4A2 /* LISENCE.txt in Resources */,
 				D4651A2315ED04F7004A0F43 /* tab-cart@2x.png in Resources */,
 				C274719617B0414200E593B5 /* MWPhotoBrowser.bundle in Resources */,
 				D4651A2715ED057A004A0F43 /* tab-home@2x.png in Resources */,
@@ -2333,7 +2383,6 @@
 				FE7AB542160A0DAB004088C1 /* HYFormSecureTextEntryCell.xib in Resources */,
 				D447CA94160B4419009D54B8 /* tab-user@2x.png in Resources */,
 				D447CA9C160B54D8009D54B8 /* action-facebook@2x.png in Resources */,
-				C2B4179E17B137EE00F920CA /* HockeySDK.xcconfig in Resources */,
 				D447CA9E160B54D8009D54B8 /* action-mail@2x.png in Resources */,
 				D447CAA0160B54D8009D54B8 /* action-twitter@2x.png in Resources */,
 				3531A3F61A19C09200D8F9B4 /* ajax_handler.js in Resources */,
@@ -2484,6 +2533,7 @@
 				D4A2E65C155937BD0041DB66 /* EGLabel.m in Sources */,
 				D4A2E65D155937BD0041DB66 /* EGViewFactory.m in Sources */,
 				D4A2E66C1559381E0041DB66 /* HYLabel.m in Sources */,
+				350F92CA1A89A8250066A4A2 /* NSSet+HealthKitPermission.m in Sources */,
 				D4A2E66D155938210041DB66 /* ViewFactory.m in Sources */,
 				D47477B115595B0700CB8FCD /* HYCategory+Factory.m in Sources */,
 				D4E77B63155A7B5C004FA59B /* HYProduct+Factory.m in Sources */,
@@ -2497,6 +2547,7 @@
 				D4ACADFA1575253F00791495 /* HYQuery+Factory.m in Sources */,
 				830FC01C1A130F430029AB70 /* BeaconsService.m in Sources */,
 				D4EBCC77158230E900F0D5DB /* HYProductCell.m in Sources */,
+				350F92C61A89A8250066A4A2 /* AccHealthDataRegister.m in Sources */,
 				D42C01281588B30500C950F7 /* SDNetworkActivityIndicator.m in Sources */,
 				D42C012D1588D42500C950F7 /* Constants.m in Sources */,
 				D42C012E1588D84400C950F7 /* HYProgressView.m in Sources */,
@@ -2522,6 +2573,7 @@
 				D40EDBA2158B762B00A2109E /* IASKSpecifierValuesViewController.m in Sources */,
 				FE4996221593374200289420 /* HYStartUpViewController.m in Sources */,
 				D49AF7191593723200BD10A5 /* HYFooterView.m in Sources */,
+				350F92C41A89A8250066A4A2 /* AccHealthDataCollector.m in Sources */,
 				D49AF7271593795D00BD10A5 /* HYWebService.m in Sources */,
 				D475E36F15949A9900884A1F /* NSDictionary+Utilities.m in Sources */,
 				FE5615B315989740009C874D /* HYSort+Factory.m in Sources */,
@@ -2594,6 +2646,7 @@
 				D447CAA1160B5BC3009D54B8 /* HYPickerView.m in Sources */,
 				D4F44A26160B85320040F1A7 /* HYProductPromotionCell.m in Sources */,
 				83FBCEA11A26B8920064401E /* KeychainItemWrapper.m in Sources */,
+				350F92C71A89A8250066A4A2 /* HealthDataWithUnit.m in Sources */,
 				C274719117B0414200E593B5 /* MWPhotoBrowser.m in Sources */,
 				FE8EDD33160C7AE000256477 /* HYAddressListViewController.m in Sources */,
 				FE580170161099E0007B0BD6 /* HYOrderListViewController.m in Sources */,
@@ -2622,11 +2675,13 @@
 				D40FA32E161AF37800AEBFA9 /* MBProgressHUD.m in Sources */,
 				FE1AD148161B04B40016DEFE /* HYProductOrderCell.m in Sources */,
 				C274719217B0414200E593B5 /* MWTapDetectingImageView.m in Sources */,
+				350F92C51A89A8250066A4A2 /* AccHealthDataOuter.m in Sources */,
 				FED1BF2D161DA5BF00E482A8 /* HYChangePasswordViewController.m in Sources */,
 				D422C97B161DF36C00863AAC /* HYObject.m in Sources */,
 				D422C97D161DF37100863AAC /* HYObjectListViewController.m in Sources */,
 				8316EC211A25803500C82DE5 /* ALAlertBannerManager.m in Sources */,
 				D422C97E161DF38400863AAC /* HYFilterViewController.m in Sources */,
+				350F92C81A89A8250066A4A2 /* HKHealthStore+SampleType.m in Sources */,
 				FE1E1A4A162313FB006B759D /* HYProfileDetailViewController.m in Sources */,
 				D42485F2162489AF00B84C68 /* TTTAttributedLabel.m in Sources */,
 				7FDA39241652617A00BDDD2A /* HYPickerControl.m in Sources */,
@@ -2809,10 +2864,12 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chong Li (F66W7N8234)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chong Li (F66W7N8234)";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2822,13 +2879,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "61dbfd85-faa4-4fb4-9717-eb32f94dc095";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2846,12 +2904,15 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chong Li (F66W7N8234)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chong Li (F66W7N8234)";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -2872,8 +2933,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chong Li (F66W7N8234)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chong Li (F66W7N8234)";
+				CODE_SIGN_ENTITLEMENTS = Hybris/hybris.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Hybris/Lib\"",
@@ -2892,16 +2954,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/Hybris/Lib/AntEater/lib\\\"",
 					"\\\"$(SDKROOT)/usr/lib/system\\\"",
 					"$(PROJECT_DIR)/Hybris/Lib/EstimoteSDK",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = hybris;
-				PROVISIONING_PROFILE = "61dbfd85-faa4-4fb4-9717-eb32f94dc095";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7s armv7";
 				WRAPPER_EXTENSION = app;
@@ -2912,8 +2974,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chong Li (F66W7N8234)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chong Li (F66W7N8234)";
+				CODE_SIGN_ENTITLEMENTS = Hybris/hybris.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chong Li (3NV46C4W8T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chong Li (3NV46C4W8T)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Hybris/Lib\"",
@@ -2933,7 +2996,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/Hybris/Lib/AntEater/lib\\\"",
 					"\\\"$(SDKROOT)/usr/lib/system\\\"",
 					"$(PROJECT_DIR)/Hybris/Lib/EstimoteSDK",
 				);
@@ -2942,8 +3004,8 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = hybris;
-				PROVISIONING_PROFILE = "61dbfd85-faa4-4fb4-9717-eb32f94dc095";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "61dbfd85-faa4-4fb4-9717-eb32f94dc095";
+				PROVISIONING_PROFILE = "66a0622a-543d-4f9b-b575-25f13f98dc2a";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "66a0622a-543d-4f9b-b575-25f13f98dc2a";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7s armv7";
 				WRAPPER_EXTENSION = app;

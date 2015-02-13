@@ -31,4 +31,5 @@ typedef void (^NSBoolDictionaryBlock)(BOOL success, NSDictionary *dictionary);
 typedef void (^NSArrayNSErrorBlock)(NSArray *array, NSError *error);
 typedef void (^NSDictionaryNSErrorBlock)(NSDictionary *dictionary, NSError *error);
 typedef void (^NSDataNSErrorBlock)(NSData *data, NSError *error);
+typedef void (^NSStringNSErrorBlock)(NSString *string, NSError *error);
 #endif

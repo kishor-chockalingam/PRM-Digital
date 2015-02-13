@@ -20,6 +20,11 @@
 #import "HYProfileDetailViewController.h"
 #import "JawboneService.h"
 
+//healthkit
+#import "AccHealthDataRegister.h"
+#import "NSSet+HealthKitPermission.h"
+#import "HKHealthStore+SampleType.h"
+#import "AccHealthDataOuter.h"
 
 /// Define the cell ordering
 typedef enum {
@@ -28,7 +33,8 @@ typedef enum {
     HYPaymentDetailsCell = 2,
     HYUpdateProfileCell = 3,
     HYChangeEmailCell = 4,
-    HYChangePasswordCell = 5
+    HYChangePasswordCell = 5,
+    HYHealthKitCell = 6
 } HYLoggedInCellPosition;
 
 //NSString *const kAPIExplorerID = @"2oscoof9Jn4";
@@ -39,6 +45,9 @@ typedef enum {
 @property (nonatomic, strong) NSDictionary *profile;
 @property (nonatomic) BOOL viewAppeared;
 @property (nonatomic, strong) JawboneService *jawboneService;
+
+//healthkit
+@property (nonatomic, strong) NSData *healthData;
 
 - (void)updateHeaderView;
 
@@ -92,6 +101,7 @@ typedef enum {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];    
     [self updateHeaderView];
+    [self getHealthPermission];
 }
 
 
@@ -112,7 +122,7 @@ typedef enum {
         return 2;
     }
     else {
-        return 1;
+        return 2;
     }
 }
 
@@ -124,7 +134,7 @@ typedef enum {
     }
     // Logged-in section
     else {
-        return 6;
+        return 7;
     }
 }
 
@@ -164,7 +174,13 @@ typedef enum {
             break;
         case HYChangePasswordCell: {
             cell.textLabel.text = NSLocalizedString(@"Change Password", "Title for the view to change the users password.");
-        }            
+        }
+            break;
+            
+        case HYHealthKitCell: {
+            cell.textLabel.text = @"Health";
+        }
+            break;
         default: {
         }
         break;
@@ -208,6 +224,10 @@ typedef enum {
             [self performSegueWithIdentifier:@"Show Order Segue" sender:self];
         }
         break;
+        case HYHealthKitCell: {
+            [self postURLWithData:[self getHealthURL]];
+        }
+            break;
         default: {
         }
         break;
@@ -396,4 +416,60 @@ typedef enum {
     }
 }
 
+#pragma mark - Healthkit function
+//healthkit permission
+- (void)getHealthPermission
+{
+    self.healthStore = [[HKHealthStore alloc] init];
+    NSSet *readSet = [NSSet setReadPermission];
+    NSSet *writeSet = [NSSet setWritePermission];
+    [self.healthStore requestAuthorizationToShareTypes:writeSet readTypes:readSet completion:^(BOOL success, NSError *error) {
+        if (success)
+        {
+            //            [self.healthStore readAllRequiredType];
+            AccHealthDataRegister *accRegister = [[AccHealthDataRegister alloc] initWithHealthStore:self.healthStore];
+            [accRegister registAlldata:self];
+        }
+        else
+        {
+            NSLog(@"You didn't allow HealthKit to access these read/write data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: %@. If you're using a simulator, try it on a device.", error);
+            return ;
+        }
+    }];
+}
+
+//delegate deal with the data
+- (void)FinishCollect
+{
+    NSInteger count = [[[AccHealthDataOuter shareInstance] dataArrays] count];
+    NSString *strID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:[[AccHealthDataOuter shareInstance] dataArrays], @"HealthData", strID, @"CustomerID", nil];
+    //    NSData *data = [NSData ]
+    NSLog(@"Total:%ld", (long)count);
+    
+    _healthData = [NSJSONSerialization dataWithJSONObject:dictionary
+                                                options:NSJSONWritingPrettyPrinted
+                                                  error:nil];
+    
+}
+
+- (void)postURLWithData:(NSString*)url
+{
+    [[HYWebService shared] postHealthDataForURL:url inputData:_healthData withCompletionBlock:^(NSString *string, NSError *error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:string message:error.localizedDescription delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        });
+    }];
+}
+
+- (NSString*)getHealthURL
+{
+    NSString *hostURL = [[NSUserDefaults standardUserDefaults] stringForKey:@"web_services_specific_base_url_preference"];
+    NSString *contentURL = @"/v1/electronics/CustomerHealthData/saveCustomerHealthData";
+    return [hostURL stringByAppendingString:contentURL];
+}
 @end

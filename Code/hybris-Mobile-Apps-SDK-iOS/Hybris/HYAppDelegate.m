@@ -321,88 +321,109 @@ static void uncaughtExceptionHandler(NSException *exception);
     [[BeaconsService sharedBeaconsService] startRangingBeaconsWithUUID:uuid identifier:@"com.accenture.region" rangingBeaconsHandler:^(NSArray *beacons, NSError *error) {
         if (beacons && beacons.count > 0) {
             if (self.free) {
+                CLBeacon *beacon = [beacons firstObject];
                 
-                if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.window
-                                                                            style:ALAlertBannerStyleNotify
-                                                                         position:ALAlertBannerPositionUnderNavBar
-                                                                            title:@"Welcome to our Store!" subtitle:@"30% off on Digital cameras for today only."
-                                                                      tappedBlock:^(ALAlertBanner *alertBanner) {
-                                                                          [alertBanner hide];
-                                                                          
-                                                                          HYWebViewController *webViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
-                                                                          NSString *url = [NSString stringWithFormat:@"%@%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"web_services_base_url_preference"], @"/bncstorefront/electronics/en/Open-Catalogue/Cameras/Film-cameras/FUN-Flash-Single-Use-Camera%2C-27%2B12-pic/p/779841?site=electronics"];
-                                                                          webViewController.urlString = url;
-                                                                          if ([self.window.rootViewController isKindOfClass:[HYTabBarController class]])
-                                                                          {
-                                                                              
-                                                                              UIViewController *nav = ((HYTabBarController *)(self.window.rootViewController)).selectedViewController;
-                                                                              [(HYNavigationViewController *)nav pushViewController:webViewController animated:YES];
-                                                                          }
-                                                                      }];
-                        banner.secondsToShow = 8;
-                        banner.showAnimationDuration = .25f;
-                        banner.hideAnimationDuration = .2f;
+                NSString *url = [self getGetURLByBeacon];
+                NSData *jsonData = [self getJSONDataOfBeacon:beacon];
+                
+                [[HYWebService shared] fetchItemWithURL:url inputData:jsonData withCompletionBlock:^(NSData *data, NSError *error) {
+                    if (jsonData) {
+                        NSError *jsonError;
                         
-                        [banner show];
-                    });
-                    
-                    NSString *url = [NSString stringWithFormat:@"%@%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"web_services_base_url_preference"], @"/bncwebservices/v1/"];
-                    url = [url stringByAppendingPathComponent:@"electronics/CustomerStoreLogin"];
-                    url = [url stringByAppendingPathComponent:@"8492E75F-4FD6-469D-B132-043FE94921D8"];
-                    url = [url stringByAppendingPathComponent:@"Chiba"];
-                    
-                    if (self.isLoggedIn) {
-                        url = [url stringByAppendingPathComponent:self.username];
-                    } else {
-                        url = [url stringByAppendingPathComponent:[self identifierForDevice]];
-                    }
-                    
-                    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-                    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-                    
-                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-                    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse* response, NSData* data, NSError* connectionError) {
-                        
-                        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                        
-                        if (!connectionError) {
-                            NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.window
-                                                                                    style:ALAlertBannerStyleNotify
-                                                                                 position:ALAlertBannerPositionUnderNavBar
-                                                                                    title:@""
-                                                                                 subtitle:message
-                                                                              tappedBlock:^(ALAlertBanner *alertBanner) {
-                                                                                  [alertBanner hide];
-                                                                              }];
-                                banner.secondsToShow = 8;
-                                banner.showAnimationDuration = .25f;
-                                banner.hideAnimationDuration = .2f;
+                        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
+                        NSString *strWelcome = [dict objectForKey:@"welcomeMessage"];
+                        NSMutableArray *promotions = [dict objectForKey:@"promotions"];
+                        for (NSDictionary * promotion in promotions)
+                        {
+                            NSString *description = [promotion objectForKey:@"description"];
+                            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
                                 
-                                [banner show];
-                            });
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.window
+                                                                                        style:ALAlertBannerStyleNotify
+                                                                                     position:ALAlertBannerPositionUnderNavBar
+                                                                                        title:strWelcome subtitle:description
+                                                                                  tappedBlock:^(ALAlertBanner *alertBanner) {
+                                                                                      [alertBanner hide];
+                                                                                      
+                                                                                      HYWebViewController *webViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
+                                                                                      NSString *url = [NSString stringWithFormat:@"%@%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"web_services_base_url_preference"], @"/bncstorefront/electronics/en/Open-Catalogue/Cameras/Film-cameras/FUN-Flash-Single-Use-Camera%2C-27%2B12-pic/p/779841?site=electronics"];
+                                                                                      webViewController.urlString = url;
+                                                                                      if ([self.window.rootViewController isKindOfClass:[HYTabBarController class]])
+                                                                                      {
+                                                                                          
+                                                                                          UIViewController *nav = ((HYTabBarController *)(self.window.rootViewController)).selectedViewController;
+                                                                                          [(HYNavigationViewController *)nav pushViewController:webViewController animated:YES];
+                                                                                      }
+                                                                                  }];
+                                    banner.secondsToShow = 8;
+                                    banner.showAnimationDuration = .25f;
+                                    banner.hideAnimationDuration = .2f;
+                                    
+                                    [banner show];
+                                });
+                                
+                                NSString *url = [NSString stringWithFormat:@"%@%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"web_services_base_url_preference"], @"/bncwebservices/v1/"];
+                                url = [url stringByAppendingPathComponent:@"electronics/CustomerStoreLogin"];
+                                url = [url stringByAppendingPathComponent:@"8492E75F-4FD6-469D-B132-043FE94921D8"];
+                                url = [url stringByAppendingPathComponent:@"Chiba"];
+                                
+                                if (self.isLoggedIn) {
+                                    url = [url stringByAppendingPathComponent:self.username];
+                                } else {
+                                    url = [url stringByAppendingPathComponent:[self identifierForDevice]];
+                                }
+                                
+                                NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+                                NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+                                
+                                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+                                [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse* response, NSData* data, NSError* connectionError) {
+                                    
+                                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                                    
+                                    if (!connectionError) {
+                                        NSString *message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.window
+                                                                                                style:ALAlertBannerStyleNotify
+                                                                                             position:ALAlertBannerPositionUnderNavBar
+                                                                                                title:@""
+                                                                                             subtitle:message
+                                                                                          tappedBlock:^(ALAlertBanner *alertBanner) {
+                                                                                              [alertBanner hide];
+                                                                                          }];
+                                            banner.secondsToShow = 8;
+                                            banner.showAnimationDuration = .25f;
+                                            banner.hideAnimationDuration = .2f;
+                                            
+                                            [banner show];
+                                        });
+                                    }
+                                }];
+                            } else {
+                                UILocalNotification *notification = [[UILocalNotification alloc] init];
+                                notification.soundName = UILocalNotificationDefaultSoundName;
+                                notification.alertBody = [strWelcome stringByAppendingString:description];
+                                notification.applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+                                notification.timeZone = [NSTimeZone systemTimeZone];
+                                notification.fireDate = [NSDate date];
+                                
+                                if (self.isLoggedIn) {
+                                    notification.userInfo = @{@"username": self.username, @"uuid": @"8492E75F-4FD6-469D-B132-043FE94921D8"};
+                                } else {
+                                    notification.userInfo = @{@"username": [self identifierForDevice], @"uuid": @"8492E75F-4FD6-469D-B132-043FE94921D8"};
+                                }
+                                
+                                [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+                            }
                         }
-                    }];
-                } else {
-                    UILocalNotification *notification = [[UILocalNotification alloc] init];
-                    notification.soundName = UILocalNotificationDefaultSoundName;
-                    notification.alertBody = @"Welcome to our Store! 30% off on Digital cameras for today only.";
-                    notification.applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
-                    notification.timeZone = [NSTimeZone systemTimeZone];
-                    notification.fireDate = [NSDate date];
-                    
-                    if (self.isLoggedIn) {
-                        notification.userInfo = @{@"username": self.username, @"uuid": @"8492E75F-4FD6-469D-B132-043FE94921D8"};
-                    } else {
-                        notification.userInfo = @{@"username": [self identifierForDevice], @"uuid": @"8492E75F-4FD6-469D-B132-043FE94921D8"};
+                        
                     }
                     
-                    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-                }
+                }];
+                
+                
                 
                 self.free = NO;
                 
@@ -712,5 +733,26 @@ static void uncaughtExceptionHandler(NSException *exception) {
     return nil;
 }
 
+#pragma mark - Promotional message
+- (NSString*)getGetURLByBeacon
+{
+    NSString *hostURL = [[NSUserDefaults standardUserDefaults] stringForKey:@"web_services_specific_base_url_preference"];
+    NSString *contentURL = @"/bncwebservices/v1/electronics/performBeaconFunction";
+    return [hostURL stringByAppendingString:contentURL];
+}
 
+- (NSData*)getJSONDataOfBeacon:(CLBeacon*)beacon
+{
+    NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
+    
+    NSString *strMajor = [numberFormatter stringFromNumber:beacon.major];
+    NSString *strMinor = [numberFormatter stringFromNumber:beacon.minor];
+    NSString *strUUID = beacon.proximityUUID.UUIDString;
+    
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:strUUID, @"beaconId", strMajor, @"majorId", strMinor, @"minorId", @"Chiba", @"storeId", nil];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:nil];
+    return jsonData;
+}
 @end
