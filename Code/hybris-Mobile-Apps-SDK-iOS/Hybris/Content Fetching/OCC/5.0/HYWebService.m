@@ -95,7 +95,7 @@ PureSingleton(HYWebService);
 #pragma mark - Public API methods
 - (void)postHealthDataForURL:(NSString*)url inputData:(NSData*)data withCompletionBlock:(NSStringNSErrorBlock)completionBlock
 {
-    (void)[[HYWebServiceDataProvider alloc] authorizedURL:url httpMethod:@"POST" httpBody:data completionBlock:^(NSData *backData, NSError *error) {
+    (void)[[HYWebServiceDataProvider alloc] authorizedURLForJSON:url httpMethod:@"POST" httpBody:data completionBlock:^(NSData *backData, NSError *error) {
         if (completionBlock) {
             if (error) {
                 dispatch_async (dispatch_get_main_queue (), ^{ completionBlock (nil, error);

@@ -32,6 +32,9 @@
 - (void)authorizedURL:(NSString *)url httpMethod:(NSString *)httpMethod httpBody:(NSData *)postData completionBlock:(NSDataNSErrorBlock)completionBlock;
 - (void)authorizedURL:(NSString *)url clientCredentialsToken:(NSString *)token httpBody:(NSData *)postData completionBlock:(NSDataNSErrorBlock)completionBlock;
 
+// For Authorization header requests(Only for posting JSON)
+- (void)authorizedURLForJSON:(NSString *)url httpMethod:(NSString *)httpMethod httpBody:(NSData *)postData completionBlock:(NSDataNSErrorBlock)completionBlock;
+
 // For logging in and out
 - (void)loginWithUsername:(NSString *)userName password:(NSString *)password completionBlock:(NSDataNSErrorBlock)completionBlock;
 - (void)logoutWithCompletionBlock:(NSDataNSErrorBlock)completionBlock;

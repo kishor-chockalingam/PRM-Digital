@@ -107,6 +107,61 @@ long expectedContentLength;
     return self;
 }
 
+- (id)initWithRequestForJSON:(NSMutableURLRequest *)request allowRefresh:(BOOL)allowRefresh completionBlock:(NSDataNSErrorBlock)completionBlock {
+    if (self = [super init]) {
+        if (completionBlock) {
+            self.completionDataBlock = completionBlock;
+        }
+        
+        if (!allowRefresh) {
+            _refreshedOnce = YES;
+        }
+        
+        // Save the request
+        self.currentRequest = request;
+        
+        // Set locale information
+        NSString *urlAsString = [request.URL absoluteString];
+        NSString *spacer = @"&";
+        
+        if ([urlAsString rangeOfString:@"?" options:NSBackwardsSearch].location == NSNotFound) {
+            spacer = @"?";
+        }
+        
+        urlAsString = [NSString stringWithFormat:@"%@%@lang=%@&curr=%@",
+                       urlAsString,
+                       spacer,
+                       [[NSUserDefaults standardUserDefaults] valueForKey:@"web_services_language_preference"],
+                       [[NSUserDefaults standardUserDefaults] valueForKey:@"web_services_currency_preference"]];
+        
+        request.URL = [NSURL URLWithString:urlAsString];
+        logDebug(@"Requesting %@", request.URL);
+        
+        //        [request setValue:[NSString stringWithFormat:@"%@",
+        //                           [[NSUserDefaults standardUserDefaults] valueForKey:@"web_services_language_preference"]] forHTTPHeaderField:@"Accept-Language"];
+        //        [request setValue:[NSString stringWithFormat:@"%@",
+        //                           [[NSUserDefaults standardUserDefaults] valueForKey:@"web_services_currency_preference"]] forHTTPHeaderField:@"Accept-Currency"];
+        
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        //logDebug(@"%@", [request allHTTPHeaderFields]);
+        //#ifdef DEBUG
+        [NSMutableURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[request.URL host]];
+        //#endif
+        _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        
+        if (_connection) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:HYConnectionStartedNotification object:nil];
+            _data = [[NSMutableData alloc] init];
+        }
+        else {
+            return nil;
+        }
+    }
+    
+    return self;
+}
+
 
 - (void)reRunRequest {
     self.connection = nil;
@@ -172,6 +227,19 @@ long expectedContentLength;
     }
 }
 
+- (void)authorizedURLForJSON:(NSString *)url httpMethod:(NSString *)httpMethod httpBody:(NSData *)postData completionBlock:(NSDataNSErrorBlock)completionBlock {
+    // Check for expired token
+    if ([HYWebServiceAuthProvider tokenExpiredHint]) {
+        [HYWebServiceAuthProvider refreshAccessTokenWithCompletionBlock:^(NSError* error) {
+            // Ignoring the error since there is another chance to refresh later
+            (void)[self initWithAuthorizedURLForJSON:url httpMethod:httpMethod httpBody:postData completionBlock:completionBlock];
+        }];
+    }
+    else {
+        (void)[self initWithAuthorizedURLForJSON:url httpMethod:httpMethod httpBody:postData completionBlock:completionBlock];
+    }
+}
+
 - (void)authorizedURL:(NSString *)url clientCredentialsToken:(NSString *)token httpBody:(NSData *)postData completionBlock:(NSDataNSErrorBlock)completionBlock
 {
     // Check for expired token
@@ -229,6 +297,31 @@ long expectedContentLength;
     }
 
     return [self initWithRequest:request allowRefresh:YES completionBlock:completionBlock];
+}
+
+- (id)initWithAuthorizedURLForJSON:(NSString *)url httpMethod:(NSString *)httpMethod httpBody:(NSData *)postData completionBlock:(NSDataNSErrorBlock)completionBlock {
+    NSMutableURLRequest *request =
+    [NSMutableURLRequest requestWithURL:[self URLByEncodingString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:HYConnectionTimeout];
+    
+    if (httpMethod && ![httpMethod isEmpty] && ([httpMethod isEqualToString:@"PUT"]
+                                                || [httpMethod isEqualToString:@"DELETE"]
+                                                || [httpMethod isEqualToString:@"GET"]
+                                                || [httpMethod isEqualToString:@"POST"])) {
+        [request setHTTPMethod:httpMethod];
+    }
+    
+    if (postData) {
+        [request setHTTPBody:postData];
+    }
+    
+    NSString *token = [HYWebServiceAuthProvider accessToken];
+    
+    if (![token isEmpty]) {
+        NSString *authValue = [NSString stringWithFormat:@"Bearer %@", token];
+        [request setValue:authValue forHTTPHeaderField:@"Authorization"];
+    }
+    
+    return [self initWithRequestForJSON:request allowRefresh:YES completionBlock:completionBlock];
 }
 
 

@@ -122,7 +122,7 @@ typedef enum {
         return 2;
     }
     else {
-        return 2;
+        return 1;
     }
 }
 
@@ -442,9 +442,10 @@ typedef enum {
 - (void)FinishCollect
 {
     NSInteger count = [[[AccHealthDataOuter shareInstance] dataArrays] count];
+    NSArray *array = [[NSArray alloc] init];
     NSString *strID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:[[AccHealthDataOuter shareInstance] dataArrays], @"HealthData", strID, @"CustomerID", nil];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:array, @"HealthData", strID, @"CustomerID", nil];
     //    NSData *data = [NSData ]
     NSLog(@"Total:%ld", (long)count);
     
