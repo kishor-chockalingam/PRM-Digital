@@ -321,16 +321,36 @@ static void uncaughtExceptionHandler(NSException *exception);
     [[BeaconsService sharedBeaconsService] startRangingBeaconsWithUUID:uuid identifier:@"com.accenture.region" rangingBeaconsHandler:^(NSArray *beacons, NSError *error) {
         if (beacons && beacons.count > 0) {
             if (self.free) {
-                CLBeacon *beacon = [beacons firstObject];
-                
+                CLBeacon *beacon=[beacons firstObject];
+                //find nearest beacon
+                for (CLBeacon *beaconItem in beacons) {
+                    if(beaconItem.proximity == CLProximityImmediate){
+                        beacon=beaconItem;
+                        break;
+                    }
+                }
+                if(beacon!=nil && self.free) {
+                self.free = NO;
                 NSString *url = [self getGetURLByBeacon];
-                NSData *jsonData = [self getJSONDataOfBeacon:beacon];
+                NSData *jsonData = [self getJSONDataOfBeacon:beacon];                
                 
                 [[HYWebService shared] fetchItemWithURL:url inputData:jsonData withCompletionBlock:^(NSData *data, NSError *error) {
-                    if (jsonData) {
+                    if (data) {
                         NSError *jsonError;
+                       
+                      /*
+                       //Offline Testing
+                        NSString* str ={
+                            @"{\"promotions\": [{\"promotionType\": \"Percentage discount\",\"description\": \"All branded reflective clothing and shoes at low prices to enhance your fitness\",\"endDate\": \"2099-01-01T00:00:00+05:30\",\"code\": \"JoggersDiscount30\"},{\"promotionType\": \"Percentage discount\",\"description\": \"All branded reflective Health equipments and supplements to beautify your fitness regime\",\"endDate\": \"2099-01-01T00:00:00+05:30\",\"code\": \"WorkoutDiscount50\"}],\"response\": \"User Record updated successfully.\",\"welcomeMessage\": \"Exciting deals waiting for you\"}"
+                        };
                         
-                        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
+                        NSData *objectData = [str dataUsingEncoding:NSUTF8StringEncoding];
+                        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:objectData
+                                                                             options:NSJSONReadingMutableContainers
+                                                                               error:&jsonError];
+                        */
+                        
+                        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
                         NSString *strWelcome = [dict objectForKey:@"welcomeMessage"];
                         NSMutableArray *promotions = [dict objectForKey:@"promotions"];
                         for (NSDictionary * promotion in promotions)
@@ -362,7 +382,7 @@ static void uncaughtExceptionHandler(NSException *exception);
                                     
                                     [banner show];
                                 });
-                                
+                                /*
                                 NSString *url = [NSString stringWithFormat:@"%@%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"web_services_base_url_preference"], @"/bncwebservices/v1/"];
                                 url = [url stringByAppendingPathComponent:@"electronics/CustomerStoreLogin"];
                                 url = [url stringByAppendingPathComponent:@"8492E75F-4FD6-469D-B132-043FE94921D8"];
@@ -400,7 +420,7 @@ static void uncaughtExceptionHandler(NSException *exception);
                                             [banner show];
                                         });
                                     }
-                                }];
+                                }];*/
                             } else {
                                 UILocalNotification *notification = [[UILocalNotification alloc] init];
                                 notification.soundName = UILocalNotificationDefaultSoundName;
@@ -423,13 +443,10 @@ static void uncaughtExceptionHandler(NSException *exception);
                     
                 }];
                 
-                
-                
-                self.free = NO;
-                
+                }
                 __weak typeof(self) weak_self = self;
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * 60 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15* 60 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
                     weak_self.free = YES;
                 });
             }
@@ -744,15 +761,21 @@ static void uncaughtExceptionHandler(NSException *exception) {
 - (NSData*)getJSONDataOfBeacon:(CLBeacon*)beacon
 {
     NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
-    
     NSString *strMajor = [numberFormatter stringFromNumber:beacon.major];
     NSString *strMinor = [numberFormatter stringFromNumber:beacon.minor];
     NSString *strUUID = beacon.proximityUUID.UUIDString;
     
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:strUUID, @"beaconId", strMajor, @"majorId", strMinor, @"minorId", @"Chiba", @"storeId", nil];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:strUUID, @"beaconId", strMajor, @"majorId", strMinor, @"minorId",[[[UIDevice currentDevice] identifierForVendor] UUIDString],@"deviceId",@"Chiba", @"storeId", nil];
+
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
                                                        options:NSJSONWritingPrettyPrinted
                                                          error:nil];
+    //remove new line formatter
+    NSString* json= [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    json = [json stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSLog(@"%@",json);
+    jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    
     return jsonData;
 }
 @end

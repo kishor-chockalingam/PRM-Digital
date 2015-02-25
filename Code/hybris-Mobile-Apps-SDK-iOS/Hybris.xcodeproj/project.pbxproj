@@ -2300,7 +2300,7 @@
 				ORGANIZATIONNAME = "Red Ant";
 				TargetAttributes = {
 					D4A2E5AE1552E80A0041DB66 = {
-						DevelopmentTeam = 3NV46C4W8T;
+						DevelopmentTeam = 6M767K3PRA;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2934,8 +2934,8 @@
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_ENTITLEMENTS = Hybris/hybris.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sandeep Fatangare (457QKT2CEN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sandeep Fatangare (457QKT2CEN)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Hybris/Lib\"",
@@ -2963,7 +2963,7 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = hybris;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6d687f9d-0b05-4179-be0f-c0b93a669b6b";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7s armv7";
 				WRAPPER_EXTENSION = app;
@@ -2975,8 +2975,8 @@
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_ENTITLEMENTS = Hybris/hybris.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Chong Li (3NV46C4W8T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chong Li (3NV46C4W8T)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sandeep Fatangare (457QKT2CEN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sandeep Fatangare (457QKT2CEN)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Hybris/Lib\"",
@@ -3004,8 +3004,8 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = hybris;
-				PROVISIONING_PROFILE = "66a0622a-543d-4f9b-b575-25f13f98dc2a";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "66a0622a-543d-4f9b-b575-25f13f98dc2a";
+				PROVISIONING_PROFILE = "6d687f9d-0b05-4179-be0f-c0b93a669b6b";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6d687f9d-0b05-4179-be0f-c0b93a669b6b";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7s armv7";
 				WRAPPER_EXTENSION = app;

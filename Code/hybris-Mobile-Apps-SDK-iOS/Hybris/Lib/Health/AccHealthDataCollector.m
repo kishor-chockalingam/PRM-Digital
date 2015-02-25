@@ -20,6 +20,10 @@
     if (self = [super init])
     {
         [[AccHealthDataOuter shareInstance] clearData];
+        
+        //add customer id to health data
+        NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"customerId", @"type",[[[UIDevice currentDevice] identifierForVendor] UUIDString], @"Value", nil];
+        [[AccHealthDataOuter shareInstance] addData:dictionary];
     }
     return self;
 }
@@ -37,7 +41,7 @@
             double userData = [HealthDataWithUnit getHealthData:mostRecentQuantity Type:type];
             NSString *strData = [NSString stringWithFormat:@"%f", userData];
 //            NSLog(@"%@", strData);
-            NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:type, @"Type", strData, @"Value", nil];
+            NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:type, @"type", strData, @"Value", nil];
             [[AccHealthDataOuter shareInstance] addData:dictionary];
         }
         [self cancelRegistData:type];
@@ -65,7 +69,7 @@
             double userData = [HealthDataWithUnit getHealthData:mostRecentQuantity Type:type];
             NSString *strData = [NSString stringWithFormat:@"%f", userData];
 //            NSLog(@"%@", strData);
-            NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:type, @"Type", strData, @"Value", nil];
+            NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:type, @"type", strData, @"Value", nil];
             completion(dictionary, error);
         }
         
@@ -84,7 +88,7 @@
                                      endDate:[NSDate dateWithTimeIntervalSinceNow:1000000]];
     NSInteger count = categorySample.value;
     NSString *strCount = [NSString stringWithFormat:@"%ld", (long)count];
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:HKCategoryTypeIdentifierSleepAnalysis, @"Type", strCount, @"Value", nil];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:HKCategoryTypeIdentifierSleepAnalysis, @"type", strCount, @"Value", nil];
     [[AccHealthDataOuter shareInstance] addData:dictionary];
 }
 

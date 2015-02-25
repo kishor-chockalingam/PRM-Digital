@@ -105,13 +105,15 @@ PureSingleton(HYWebService);
             
             
             if (backData) {
-                NSError *stringError;
-                NSString *strResult = [[NSString alloc] initWithData:backData encoding:NSUTF8StringEncoding];
+                NSError *jsonError;
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:backData
+                                                                     options:NSJSONReadingMutableContainers
+                                                                       error:&error];
+
                 
-                
-                if (stringError) {
+                if (jsonError) {
                     if (completionBlock) {
-                        dispatch_async (dispatch_get_main_queue (), ^{ completionBlock (nil, stringError);
+                        dispatch_async (dispatch_get_main_queue (), ^{ completionBlock (nil, jsonError);
                         });
                     }
                     
@@ -119,7 +121,7 @@ PureSingleton(HYWebService);
                 }
                 
                 if (completionBlock) {
-                    dispatch_async (dispatch_get_main_queue (), ^{ completionBlock (strResult, error);
+                    dispatch_async (dispatch_get_main_queue (), ^{ completionBlock ([dict objectForKey:@"response"], error);
                     });
                 }
                 
@@ -138,7 +140,7 @@ PureSingleton(HYWebService);
 
 - (void)fetchItemWithURL:(NSString*)url inputData:(NSData*)data withCompletionBlock:(NSDataNSErrorBlock)completionBlock
 {
-    (void)[[HYWebServiceDataProvider alloc] initWithURL:url httpMethod:@"GET" httpBody:data  completionBlock:^(NSData *jsonData, NSError *error) {
+    (void)[[HYWebServiceDataProvider alloc] authorizedURLForJSON:url httpMethod:@"POST" httpBody:data  completionBlock:^(NSData *jsonData, NSError *error) {
         if (completionBlock)
         {
             if (error)

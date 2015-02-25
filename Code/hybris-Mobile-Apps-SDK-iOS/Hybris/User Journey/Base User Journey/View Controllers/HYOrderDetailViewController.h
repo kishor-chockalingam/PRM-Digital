@@ -25,5 +25,5 @@
 @property (weak, nonatomic) IBOutlet HYLabel *confirmationLabel;
 @property (weak, nonatomic) IBOutlet HYLabel *orderStatusLabel;
 @property (weak, nonatomic) IBOutlet HYLabel *orderStatusHeaderLabel;
-
+@property (weak, nonatomic) IBOutlet HYLabel *ucoidLabel;
 @end

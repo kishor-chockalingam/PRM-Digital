@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hX1-Hu-AJL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hX1-Hu-AJL">
     <dependencies>
         <deployment version="1280" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -2304,27 +2304,41 @@ Sun</string>
                                     <rect key="frame" x="0.0" y="64" width="320" height="130"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mpn-Pj-eR3" customClass="HYLabel">
+                                            <rect key="frame" x="8" y="4" width="286" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(This is your Secret UCOID, Please do not share it with anyone to prevent misuse)" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8LY-2m-mv7">
+                                            <rect key="frame" x="8" y="23" width="304" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="555" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JxZ-bu-Ahd" customClass="HYLabel">
-                                            <rect key="frame" x="8" y="20" width="272" height="21"/>
+                                            <rect key="frame" x="8" y="50" width="272" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <view contentMode="scaleToFill" id="z1m-9R-ru6">
-                                            <rect key="frame" x="8" y="50" width="304" height="41"/>
+                                            <rect key="frame" x="8" y="73" width="304" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fTh-J5-bTj" customClass="HYLabel">
-                                            <rect key="frame" x="17" y="60" width="287" height="21"/>
+                                            <rect key="frame" x="17" y="83" width="287" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9JF-c9-AjR" customClass="HYLabel">
-                                            <rect key="frame" x="8" y="99" width="292" height="21"/>
+                                            <rect key="frame" x="8" y="114" width="292" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -2497,6 +2511,7 @@ Sun</string>
                         <outlet property="orderStatusLabel" destination="fTh-J5-bTj" id="eWC-Do-zBO"/>
                         <outlet property="orderStatusView" destination="z1m-9R-ru6" id="Qwx-cv-uBl"/>
                         <outlet property="tableView" destination="cDC-Kj-Hav" id="e3d-Iv-3kE"/>
+                        <outlet property="ucoidLabel" destination="Mpn-Pj-eR3" id="oqv-24-Y5F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVC-pE-gjm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2552,10 +2567,10 @@ Sun</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mkv-2c-xMC"/>
-        <segue reference="UX1-be-t8f"/>
-        <segue reference="qv9-Ic-UEe"/>
         <segue reference="O1E-9J-Vl3"/>
+        <segue reference="UX1-be-t8f"/>
+        <segue reference="FRc-XS-ha7"/>
+        <segue reference="mkv-2c-xMC"/>
         <segue reference="T7v-AE-QQp"/>
         <segue reference="GfH-dY-xBm"/>
     </inferredMetricsTieBreakers>

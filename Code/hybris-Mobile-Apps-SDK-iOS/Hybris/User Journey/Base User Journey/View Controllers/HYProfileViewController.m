@@ -442,26 +442,30 @@ typedef enum {
 - (void)FinishCollect
 {
     NSInteger count = [[[AccHealthDataOuter shareInstance] dataArrays] count];
-    NSArray *array = [[NSArray alloc] init];
-    NSString *strID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:array, @"HealthData", strID, @"CustomerID", nil];
-    //    NSData *data = [NSData ]
+    NSLog(@"%@", [[AccHealthDataOuter shareInstance] dataArrays]);
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:[[AccHealthDataOuter shareInstance] dataArrays], @"HealthData", nil];
+ 
     NSLog(@"Total:%ld", (long)count);
     
     _healthData = [NSJSONSerialization dataWithJSONObject:dictionary
-                                                options:NSJSONWritingPrettyPrinted
+                                                  options:NSJSONWritingPrettyPrinted
                                                   error:nil];
-    
+   
 }
 
 - (void)postURLWithData:(NSString*)url
-{
+{ 
+    // it is required to remove all new line chars from json
+    NSString* json= [[NSString alloc] initWithData:_healthData encoding:NSUTF8StringEncoding];
+    json = [json stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSLog(@"%@",json);
+    _healthData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    
     [[HYWebService shared] postHealthDataForURL:url inputData:_healthData withCompletionBlock:^(NSString *string, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:string message:error.localizedDescription delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:string
+                                                                message:error.localizedDescription delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alertView show];
         });
     }];
@@ -470,7 +474,7 @@ typedef enum {
 - (NSString*)getHealthURL
 {
     NSString *hostURL = [[NSUserDefaults standardUserDefaults] stringForKey:@"web_services_specific_base_url_preference"];
-    NSString *contentURL = @"/v1/electronics/CustomerHealthData/saveCustomerHealthData";
+    NSString *contentURL = @"/bncwebservices/v1/electronics/CustomerHealthData/saveCustomerHealthData";
     return [hostURL stringByAppendingString:contentURL];
 }
 @end

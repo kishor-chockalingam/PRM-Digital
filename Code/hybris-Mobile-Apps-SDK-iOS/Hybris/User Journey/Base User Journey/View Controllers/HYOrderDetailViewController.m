@@ -95,8 +95,9 @@ static NSString *summarySectionIdentifier = @"Hybris Summary Cell";
 
         self.confirmationLabel.text = [NSString stringWithFormat:@"%@", placeOn];
         self.orderStatusLabel.text = [self.orderDetails objectForKey:@"statusDisplay"];
-
+        self.ucoidLabel.text       = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"UCOID is", nil), [self.orderDetails objectForKey:@"ucoid"]];
         [self.tableView reloadData];
+        
     }
 }
 
