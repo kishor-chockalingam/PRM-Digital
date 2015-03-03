@@ -365,6 +365,7 @@ static void uncaughtExceptionHandler(NSException *exception);
                                                                                         title:strWelcome subtitle:description
                                                                                   tappedBlock:^(ALAlertBanner *alertBanner) {
                                                                                       [alertBanner hide];
+                                                                                      //show alert dialog
                                                                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strWelcome message:description delegate:nil
                                                                                     cancelButtonTitle:@"OK"
                                                                                     otherButtonTitles:nil];
