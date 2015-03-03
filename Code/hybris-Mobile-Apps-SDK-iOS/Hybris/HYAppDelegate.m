@@ -348,8 +348,8 @@ static void uncaughtExceptionHandler(NSException *exception);
                         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:objectData
                                                                              options:NSJSONReadingMutableContainers
                                                                                error:&jsonError];
-                        */
-                        
+                       
+                       */
                         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
                         NSString *strWelcome = [dict objectForKey:@"welcomeMessage"];
                         NSMutableArray *promotions = [dict objectForKey:@"promotions"];
@@ -365,7 +365,11 @@ static void uncaughtExceptionHandler(NSException *exception);
                                                                                         title:strWelcome subtitle:description
                                                                                   tappedBlock:^(ALAlertBanner *alertBanner) {
                                                                                       [alertBanner hide];
-                                                                                      
+                                                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strWelcome message:description delegate:nil
+                                                                                    cancelButtonTitle:@"OK"
+                                                                                    otherButtonTitles:nil];
+                                                                                     [alert show];
+                                                                                      /*
                                                                                       HYWebViewController *webViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
                                                                                       NSString *url = [NSString stringWithFormat:@"%@%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"web_services_base_url_preference"], @"/bncstorefront/electronics/en/Open-Catalogue/Cameras/Film-cameras/FUN-Flash-Single-Use-Camera%2C-27%2B12-pic/p/779841?site=electronics"];
                                                                                       webViewController.urlString = url;
@@ -374,7 +378,7 @@ static void uncaughtExceptionHandler(NSException *exception);
                                                                                           
                                                                                           UIViewController *nav = ((HYTabBarController *)(self.window.rootViewController)).selectedViewController;
                                                                                           [(HYNavigationViewController *)nav pushViewController:webViewController animated:YES];
-                                                                                      }
+                                                                                      }*/
                                                                                   }];
                                     banner.secondsToShow = 8;
                                     banner.showAnimationDuration = .25f;
