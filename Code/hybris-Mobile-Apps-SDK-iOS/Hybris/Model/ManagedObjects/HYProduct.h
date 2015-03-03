@@ -41,5 +41,5 @@
 @property (nonatomic) BOOL purchasable;
 @property (nonatomic, strong) NSMutableSet *cartEntries;
 @property (nonatomic, strong) NSMutableArray *reviews;
-
+@property (nonatomic, strong) NSString *location;
 @end

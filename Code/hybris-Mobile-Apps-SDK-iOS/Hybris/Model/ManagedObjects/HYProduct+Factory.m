@@ -78,7 +78,7 @@
     product.internalClass = NSStringFromClass([product class]);
     product.productDescription = [productInfo objectForKey:@"description"];
     product.manufacturer = [productInfo objectForKey:@"manufacturer"];
-
+    product.location = [productInfo objectForKey:@"location"];
     // If a product is found by code, it will not have a query
     if ([info objectForKey:@"query"]) {
         product.query = [info objectForKey:@"query"];
