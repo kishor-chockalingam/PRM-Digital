@@ -1,0 +1,6 @@
+1. Create the folder 'C:\webcam\printed_files'. YOur pictures will be stored here
+2. Run the jar file from the command prompt WebCamFiles_1930.jar
+	using the command 'java -jar WebCamFiles_1930.jar'
+3. Wait till the command completes. Check the picture taken in the above folder.
+
+Note :  If the jar file is placed under root folder, the supported jar files has to be inside lib folder.
