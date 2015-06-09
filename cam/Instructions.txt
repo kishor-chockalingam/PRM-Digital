@@ -3,4 +3,4 @@
 	using the command 'java -jar WebCamFiles_1930.jar'
 3. Wait till the command completes. Check the picture taken in the above folder.
 
-Note :  If the jar file is placed under root folder, the supported jar files has to be inside lib folder.
+Note :  If the jar file is placed under root folder, the supported jar files has to be inside root\lib folder.
